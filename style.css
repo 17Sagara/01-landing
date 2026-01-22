@@ -1,0 +1,146 @@
+/* ============================= */
+/* ESTILOS GENERALES */
+/* ============================= */
+
+body {
+    background-color: #f4f6f8;  /* Fondo gris claro */
+    font-family: Arial, Helvetica, sans-serif; /* Fuente limpia */
+    margin: 0; /* Quita el margen por defecto */
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.perfil {
+    background-color: #0a2540; /* Azul profesional */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centra contenido */
+    padding: 20px;
+}
+
+.perfil img {
+    border-radius: 50%; /* Foto circular */
+}
+
+/* ============================= */
+/* MENÚ */
+/* ============================= */
+
+nav {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    position: sticky; /* Se queda fijo al hacer scroll */
+    top: 0;
+    z-index: 1000; /* Se pone encima de todo */
+}
+
+nav a {
+    color: #0a2540;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+/* ============================= */
+/* LAYOUT CON FLEXBOX */
+/* ============================= */
+
+/* Contenedor principal en dos columnas */
+.grid {
+    display: flex;      /* Activa Flexbox */
+    gap: 20px;          /* Espacio entre columnas */
+}
+
+/* Cada columna ocupa la mitad */
+.columna {
+    flex: 1;           /* 1 = mismo tamaño */
+}
+
+/* ============================= */
+/* CONTENIDO */
+/* ============================= */
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ============================= */
+/* TARJETAS */
+/* ============================= */
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    position: relative; /* Permite colocar badge encima */
+}
+
+/* ============================= */
+/* BADGE */
+/* ============================= */
+
+.badge {
+    position: absolute; /* Flota dentro de la tarjeta */
+    top: 10px;
+    right: 10px;
+    background: #0a2540;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* ============================= */
+/* PROYECTOS */
+/* ============================= */
+
+.proyecto {
+    background: #fafafa;
+    padding: 15px;
+    border-left: 4px solid #0a2540;
+    margin-top: 10px;
+}
+
+/* ============================= */
+/* FORMULARIO */
+/* ============================= */
+
+form input,
+form textarea {
+    width: 100%;      /* Ocupan todo el ancho */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background: #0a2540;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* ============================= */
+/* DISEÑO RESPONSIVE */
+/* ============================= */
+
+/* Cuando la pantalla sea menor a 768px (celular o tablet) */
+@media (max-width: 768px) {
+
+    /* Las columnas pasan a vertical */
+    .grid {
+        flex-direction: column; /* Apila las columnas */
+    }
+
+    /* El menú se ve mejor en móviles */
+    nav a {
+        display: block;        /* Cada link en una línea */
+        margin: 10px 0;
+    }
+}
+

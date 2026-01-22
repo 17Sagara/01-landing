@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Permite usar tildes, ñ, etc -->
+    <title>Jhon Rodriguez | Desarrollador Frontend</title>
+
+    <!-- Conecta el archivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="perfil">
+        <!-- Foto de perfil -->
+        <img src="img/perfil.jpeg" alt="Foto de Perfil" width="150">
+
+        <!-- Nombre y descripción -->
+        <h1>Jhon Rodríguez - Frontend Developer</h1>
+        <p>Desarrollador Frontend en formación</p>
+    </header>
+
+    <!-- ================= MENÚ ================= -->
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Proyectos</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <!-- ================= CONTENIDO ================= -->
+    <!-- Le agregamos la clase "grid" para activar Flexbox -->
+    <main class="grid">
+
+        <!-- ===== Columna izquierda ===== -->
+        <div class="columna">
+
+            <!-- Banner -->
+            <section class="card">
+                <img src="img/banner.png" alt="Banner" width="100%">
+            </section>
+
+            <!-- Sobre mí -->
+            <section class="card">
+                <h2>Sobre mí</h2>
+                <p>Mi nombre es <strong>Sagara</strong> y me estoy formando como <em>Desarrollador Frontend</em>.</p>
+                <p>Mi objetivo es conseguir un empleo remoto y construir una carrera en tecnología.</p>
+            </section>
+
+            <!-- Habilidades -->
+            <section class="card">
+                <h2>Lo que estoy aprendiendo</h2>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- ===== Columna derecha ===== -->
+        <div class="columna">
+
+            <!-- Contacto -->
+            <section class="card">
+                <h2>Contacto</h2>
+
+                <form>
+                    <input type="text" placeholder="Nombre">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Mensaje"></textarea>
+                    <button>Enviar</button>
+                </form>
+            </section>
+
+            <!-- Proyectos -->
+            <section class="card proyectos">
+                <!-- Etiqueta flotante -->
+                <span class="badge">NUEVO</span>
+
+                <h2>Mis avances</h2>
+
+                <article class="proyecto">
+                    <h3>Aprendiendo HTML</h3>
+                    <p>Estoy dominando la estructura web.</p>
+                </article>
+
+                <article class="proyecto">
+                    <h3>Mi camino</h3>
+                    <p>Construyendo mi carrera como desarrollador.</p>
+                </article>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>© 2026 - Jhon Rodriguez</p>
+    </footer>
+
+</body>
+</html>
