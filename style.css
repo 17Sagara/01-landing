@@ -1,170 +1,169 @@
-/* ============================= */
-/* ESTILOS GENERALES */
-/* ============================= */
-
-body {
-    background-color: #f4f6f8;     /* Fondo gris claro */
-    font-family: Arial, Helvetica, sans-serif; /* Fuente profesional */
-    margin: 0;                    /* Quita bordes */
-    color: #222;                  /* Color de texto */
+/* Reset de modelo de caja */
+* {
+  box-sizing: border-box; /* Evita errores de tamaño */
 }
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
+/* ================= ESTILOS GENERALES ================= */
+
+body {
+  background-color: #f4f6f8; /* Color de fondo */
+  font-family: Arial, Helvetica, sans-serif; /* Fuente */
+  margin: 0; /* Quita márgenes */
+  color: #222; /* Texto oscuro */
+}
+
+/* ================= HEADER ================= */
 
 .perfil {
-    background-color: #0a2540;
-    color: white;
-    text-align: center;
-    padding: 30px;
+  background-color: #0a2540; /* Azul oscuro */
+  color: white; /* Texto blanco */
+  text-align: center; /* Centra contenido */
+  padding: 30px;
 }
 
 .perfil img {
-    width: 120px;
-    border-radius: 50%;
-    border: 4px solid white;
+  width: 120px; /* Tamaño imagen */
+  border-radius: 50%; /* Circular */
+  border: 4px solid white;
 }
 
-.social {
-    margin-top: 15px;
-}
-
+/* Redes sociales */
 .social a {
-    background: white;
-    color: #0a2540;
-    padding: 8px 15px;
-    margin: 5px;
-    display: inline-block;
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: bold;
+  background: white;
+  color: #0a2540;
+  padding: 8px 15px;
+  margin: 5px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* ============================= */
-/* MENÚ */
-/* ============================= */
+/* Hover en botones */
+.social a:hover {
+  background: #dbe6f2;
+}
+
+/* ================= MENÚ ================= */
 
 nav {
-    background: white;
-    padding: 15px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background: white;
+  padding: 15px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a {
-    color: #0a2540;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
+  color: #0a2540;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-/* ============================= */
-/* LAYOUT */
-/* ============================= */
+/* Hover del menú */
+nav a:hover {
+  color: #1e4e8c;
+}
+
+/* ================= LAYOUT ================= */
 
 main {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
 }
 
 .grid {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .columna {
-    flex: 1;
+  flex: 1;
 }
 
-/* ============================= */
-/* TARJETAS */
-/* ============================= */
+/* ================= TARJETAS ================= */
 
 .card {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    position: relative;
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  position: relative;
 }
 
-/* ============================= */
-/* BADGE */
-/* ============================= */
+/* ================= BADGE ================= */
 
 .badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #0a2540;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #0a2540;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
-/* ============================= */
-/* PROYECTOS */
-/* ============================= */
+/* ================= PROYECTOS ================= */
 
 .proyecto {
-    background: #fafafa;
-    padding: 15px;
-    border-left: 4px solid #0a2540;
-    margin-top: 15px;
+  background: #fafafa;
+  padding: 15px;
+  border-left: 4px solid #0a2540;
+  margin-top: 15px;
 }
 
-.proyecto a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #0a2540;
-    font-weight: bold;
-}
-
-/* ============================= */
-/* FORMULARIO */
-/* ============================= */
+/* ================= FORMULARIO ================= */
 
 form input,
 form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
+/* Estilo al enfocar */
+form input:focus,
+form textarea:focus {
+  outline: 2px solid #0a2540;
+}
+
+/* Botón */
 button {
-    background: #0a2540;
-    color: white;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
+  background: #0a2540;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
 }
 
-/* ============================= */
-/* FOOTER */
-/* ============================= */
+/* Hover botón */
+button:hover {
+  background: #1e4e8c;
+}
+
+/* ================= FOOTER ================= */
 
 footer {
-    background: #0a2540;
-    color: white;
-    text-align: center;
-    padding: 20px;
+  background: #0a2540;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-    .grid {
-        flex-direction: column;
-    }
+  .grid {
+    flex-direction: column; /* Columnas una debajo de otra */
+  }
 
-    nav a {
-        display: block;
-        margin: 10px;
-    }
+  nav a {
+    display: block;
+    margin: 10px;
+  }
 }

@@ -1,113 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <!-- Codificación para que funcionen ñ, tildes, etc -->
-    <meta charset="UTF-8">
+  <head>
+    <!-- CABEZA DE LA PAGINA WEB -->
 
-    <!-- Permite que la web se vea bien en móviles -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Permite usar caracteres como ñ, tildes y emojis -->
+    <meta charset="UTF-8" />
 
-    <!-- Título que aparece en Google y en la pestaña -->
+    <!-- Hace que la página se adapte al tamaño del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO básico: descripción para Google -->
+    <meta
+      name="description"
+      content="Portafolio de Jhon Rodríguez, Frontend Developer especializado en HTML, CSS y diseño web."
+    />
+
+    <!-- Palabras clave para buscadores -->
+    <meta
+      name="keywords"
+      content="Frontend, HTML, CSS, Desarrollador Web, Portafolio"
+    />
+
+    <!-- Autor del sitio -->
+    <meta name="author" content="Jhon Rodríguez" />
+
+    <!-- Título que aparece en la pestaña -->
     <title>Jhon Rodríguez | Frontend Developer</title>
 
-    <!-- Conexión con el archivo CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
+    <!-- Conecta el HTML con el archivo CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- CUERPO DE LA PAGINA WEB -->
 
-<body>
-
-    <!-- ================= HEADER ================= -->
+    <!-- ================= HEADER ================= (Describir quien eres "Identidad del sitio" “Esta es la cabecera o presentación principal de la página”.)-->
     <header class="perfil">
-        <img src="img/perfil.jpeg" alt="Foto de Jhon Rodríguez">
-        <h1>Jhon Rodríguez</h1>
-        <p>Frontend Developer en formación</p>
+      <!-- ¿Qué hace class="perfil"? Eso conecta este bloque con el CSS .perfil { ... } -->
 
-        <!-- Botones de redes -->
-        <div class="social">
-            <a href="https://github.com/17Sagara" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/jhon-rodriguez-86114b209/" target="_blank">LinkedIn</a>
-        </div>
+      <!-- Imagen del perfil -->
+      <img src="img/perfil.jpeg" alt="Foto de Jhon Rodríguez" />
+
+      <!-- Nombre principal -->
+      <h1>Jhon Rodríguez</h1>
+
+      <!-- Profesión -->
+      <p>Frontend Developer en formación</p>
+
+      <!-- Enlaces sociales (div es una caja vacia para agrupar elementos)-->
+      <div class="social">
+        <!-- ¿Qué hace class="social"? Eso conecta este bloque con el CSS .social { ... } -->
+        <!-- "<a>Es un enlace" "href Es a dónde va cuando haces clic" "target="_blank""Hace que se abra en una pestaña nueva. "aria-label Es el texto a mostrar y accesibilidad "GitHub" entre comillas servira para que los usuaros con discapacidad o Google SEO acceda a GitHub"-->
+        <a
+          href="https://github.com/17Sagara"
+          target="_blank"
+          aria-label="GitHub"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/jhon-rodriguez-86114b209/"
+          target="_blank"
+          aria-label="LinkedIn"
+          >LinkedIn</a
+        >
+      </div>
     </header>
 
     <!-- ================= MENÚ ================= -->
     <nav>
-        <a href="#sobre">Sobre mí</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
+      <!-- Como se navega o menu de navegación  (<nav> le dice a google o navegadores que es un menu de navegacion)-->
+      <!-- <a> Quiere decir que es un enlace -->
+      <!-- # Es para ir a un elemento dentro de esta misma página que tenga ese ID, el navegador baja automáticamente hasta esa sección -->
+      <a href="#sobre">Sobre mí</a
+      ><!-- En resumen este es un enlace que si se hace clic en Sobre mi con su ID: #sobre me mostrara la sección sobre mi donde sea que este ubicada en mi pagina -->
+      <a href="#habilidades">Habilidades</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
     </nav>
 
-    <!-- ================= CONTENIDO ================= -->
+    <!-- ================= CONTENIDO ================= (Indica a los usuarios y a los navegadores que este es el contenido proncipal del sitio) -->
     <main>
+      <!-- Es donde va todo el contenido -->
 
-        <!-- Contenedor en dos columnas -->
-        <div class="grid">
+      <div class="grid">
+        <!-- div es una caja genérica. grid es una clase CSS que dice "Esta caja organiza su contenido en columnas" ESTRUCTURA -->
 
-            <!-- ===== COLUMNA IZQUIERDA ===== -->
-            <div class="columna">
+        <!-- ===== COLUMNA IZQUIERDA ===== -->
+        <div class="columna">
+          <!-- Este div representa una columba de la pagina, esto hace que se divida en 2 columnas y representa la izquierda | Columna 1 | Columna 2 |
+ -->
 
-                <section class="card" id="sobre">
-                    <h2>Sobre mí</h2>
-                    <p>
-                        Soy <strong>Jhon Rodríguez</strong>, desarrollador Frontend en formación.  
-                        Mi objetivo es conseguir un <strong>trabajo remoto</strong> creando interfaces modernas, rápidas y funcionales.
-                    </p>
-                </section>
+          <section class="card" id="sobre">
+            <!-- Bloques (“Este es un bloque de información” - section es semántico: indica una sección temática - id="sobre" sirve para que el menú <a href="#sobre"> funcione - class="card" permite darle estilo visual tipo tarjeta desde .card en css.) -->
+            <h2>Sobre mí</h2>
+            <!-- Título de la sección -->
+            <p>
+              <!-- Parrafo -->
+              Soy <strong>Jhon Rodríguez</strong>, desarrollador Frontend en
+              formación. Mi objetivo es conseguir un
+              <strong>trabajo remoto</strong> creando interfaces modernas,
+              rápidas y funcionales.
+            </p>
+          </section>
 
-                <section class="card" id="habilidades">
-                    <h2>Habilidades</h2>
-                    <ul>
-                        <li>HTML5 semántico</li>
-                        <li>CSS3 (Flexbox, responsive)</li>
-                        <li>Diseño web</li>
-                        <li>Git & GitHub</li>
-                        <li>JavaScript (en progreso)</li>
-                    </ul>
-                </section>
-
-            </div>
-
-            <!-- ===== COLUMNA DERECHA ===== -->
-            <div class="columna">
-
-                <section class="card" id="proyectos">
-                    <span class="badge">NUEVO</span>
-                    <h2>Proyectos</h2>
-
-                    <article class="proyecto">
-                        <h3>Landing Page</h3>
-                        <p>Mi primera página web profesional usando HTML y CSS.</p>
-                        <a href="https://github.com/17Sagara/01-landing" target="_blank">Ver código</a>
-                    </article>
-
-                    <article class="proyecto">
-                        <h3>Perfil Frontend</h3>
-                        <p>Portafolio personal con diseño responsive.</p>
-                    </article>
-                </section>
-
-            </div>
-
+          <section class="card" id="habilidades">
+            <!-- Aca tambien "card" es para referencia .card en el css para estilos visuales y id:"habilidades" para referenciarla con el menu -->
+            <h2>Habilidades</h2>
+            <!-- Título de la sección -->
+            <ul><!-- Lista desordenada (no tiene numeracion)-->
+              <li>HTML5 semántico</li>
+              <!-- li es un elemento de lista -->
+              <li>CSS3 (Flexbox, responsive)</li>
+              <li>Diseño web</li>
+              <li>Git & GitHub</li>
+              <li>JavaScript (en progreso)</li>
+            </ul>
+          </section>
         </div>
 
-        <!-- ================= CONTACTO ================= -->
-        <section class="card" id="contacto">
-            <h2>Contacto</h2>
+        <!-- ===== COLUMNA DERECHA ===== -->
+        <div class="columna">
+          <!-- cada .columna ocupa la mitad. -->
 
-            <form>
-                <input type="text" placeholder="Tu nombre" required>
-                <input type="email" placeholder="Tu correo" required>
-                <textarea placeholder="Tu mensaje" required></textarea>
-                <button>Enviar mensaje</button>
-            </form>
-        </section>
+          <section class="card" id="proyectos">
+            <!-- Aca tambien "card" es para referencia .card en el css para estilos visuales y id:"proyectos" para referenciarla con el menu -->
+            
+            <span class="badge">NUEVO</span>
+            <!-- span es una etiqueta pequeña de texto y con la clase .badge en css NUEVO queda flotando arriba de la tarjeta como sticker-->
+           
+            <h2>Proyectos</h2>
+            <!-- Titulo principal para esta sección -->
 
+            <article class="proyecto">
+              <!-- Esto es una pieza de contenido independiente "articulo" -->
+              
+              <h3>Landing Page</h3>
+              <!-- Titulo principal para esta sección -->
+              
+              <p>Mi primera página web profesional usando HTML y CSS.</p>
+              <!-- Parrafo -->
+              
+              <a href="https://github.com/17Sagara/01-landing" target="_blank"
+                >Ver código</a
+              >
+              <!-- target="_blank" Hace que el enlace se abra en otra pestaña. -->
+            </article>
+
+            <article class="proyecto">
+              <!-- Esto es una pieza de contenido independiente "articulo" -->
+              <h3>Perfil Frontend</h3>
+              <!-- Titulo principal para esta sección -->
+              <p>Portafolio personal con diseño responsive.</p>
+              <!-- Parrafo -->
+            </article>
+          </section>
+        </div>
+      </div>
+
+      <!-- ================= CONTACTO ================= -->
+      <section class="card" id="contacto"> <!-- section Es un bloque semántico → una sección importante del sitio - class="card" Le aplica el diseño de tarjeta del CSS - id="contacto" Permite que el menú vaya aquí cuando se hace clic    -->
+        <h2>Contacto</h2> <!-- Titulo principal para esta sección -->
+
+        <form> <!-- con form damos a entender que el usuario va a escribir datos que pueden enviarse sin el los campos serian decorativos-->
+          <!-- Campo nombre --><!-- input Campo donde el usuario escribe - type="text" Texto normal - placeholder Texto gris de ayuda - requiered No deja enviar si está vacío -->
+          <input type="text" placeholder="Tu nombre" required />
+
+          <!-- Campo email --><!-- input Campo donde el usuario escribe - type="emal" Texto de email - placeholder Texto gris de ayuda - requiered No deja enviar si está vacío -->
+          <input type="email" placeholder="Tu correo" required />
+
+          <!-- Mensaje --><!-- aca igual a los anteriores solamente que ya no tiene un tipo de texto asignado -->
+          <textarea placeholder="Tu mensaje" required></textarea>
+
+          <!-- Botón --><!-- type="submit" significa que cuando lo presionen, envía el formulario (por ahora no tiene a donde enviarlo solo es decorativo)-->
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </section>
     </main>
 
     <!-- ================= FOOTER ================= -->
     <footer>
-        <p>© 2026 - Jhon Rodríguez | Frontend Developer</p>
+      <p>© 2026 - Jhon Rodríguez | Frontend Developer</p>
     </footer>
-
-</body>
+  </body>
 </html>
