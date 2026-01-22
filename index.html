@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"> <!-- Permite usar tildes, ñ, etc -->
-    <title>Jhon Rodriguez | Desarrollador Frontend</title>
+    <!-- Codificación para que funcionen ñ, tildes, etc -->
+    <meta charset="UTF-8">
 
-    <!-- Conecta el archivo CSS -->
+    <!-- Permite que la web se vea bien en móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece en Google y en la pestaña -->
+    <title>Jhon Rodríguez | Frontend Developer</title>
+
+    <!-- Conexión con el archivo CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,93 +18,95 @@
 
     <!-- ================= HEADER ================= -->
     <header class="perfil">
-        <!-- Foto de perfil -->
-        <img src="img/perfil.jpeg" alt="Foto de Perfil" width="150">
+        <img src="img/perfil.jpeg" alt="Foto de Jhon Rodríguez">
+        <h1>Jhon Rodríguez</h1>
+        <p>Frontend Developer en formación</p>
 
-        <!-- Nombre y descripción -->
-        <h1>Jhon Rodríguez - Frontend Developer</h1>
-        <p>Desarrollador Frontend en formación</p>
+        <!-- Botones de redes -->
+        <div class="social">
+            <a href="https://github.com/17Sagara" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/jhon-rodriguez-86114b209/" target="_blank">LinkedIn</a>
+        </div>
     </header>
 
     <!-- ================= MENÚ ================= -->
     <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Proyectos</a>
-        <a href="#">Contacto</a>
+        <a href="#sobre">Sobre mí</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
     </nav>
 
     <!-- ================= CONTENIDO ================= -->
-    <!-- Le agregamos la clase "grid" para activar Flexbox -->
-    <main class="grid">
+    <main>
 
-        <!-- ===== Columna izquierda ===== -->
-        <div class="columna">
+        <!-- Contenedor en dos columnas -->
+        <div class="grid">
 
-            <!-- Banner -->
-            <section class="card">
-                <img src="img/banner.png" alt="Banner" width="100%">
-            </section>
+            <!-- ===== COLUMNA IZQUIERDA ===== -->
+            <div class="columna">
 
-            <!-- Sobre mí -->
-            <section class="card">
-                <h2>Sobre mí</h2>
-                <p>Mi nombre es <strong>Sagara</strong> y me estoy formando como <em>Desarrollador Frontend</em>.</p>
-                <p>Mi objetivo es conseguir un empleo remoto y construir una carrera en tecnología.</p>
-            </section>
+                <section class="card" id="sobre">
+                    <h2>Sobre mí</h2>
+                    <p>
+                        Soy <strong>Jhon Rodríguez</strong>, desarrollador Frontend en formación.  
+                        Mi objetivo es conseguir un <strong>trabajo remoto</strong> creando interfaces modernas, rápidas y funcionales.
+                    </p>
+                </section>
 
-            <!-- Habilidades -->
-            <section class="card">
-                <h2>Lo que estoy aprendiendo</h2>
-                <ul>
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                </ul>
-            </section>
+                <section class="card" id="habilidades">
+                    <h2>Habilidades</h2>
+                    <ul>
+                        <li>HTML5 semántico</li>
+                        <li>CSS3 (Flexbox, responsive)</li>
+                        <li>Diseño web</li>
+                        <li>Git & GitHub</li>
+                        <li>JavaScript (en progreso)</li>
+                    </ul>
+                </section>
 
-        </div>
+            </div>
 
-        <!-- ===== Columna derecha ===== -->
-        <div class="columna">
+            <!-- ===== COLUMNA DERECHA ===== -->
+            <div class="columna">
 
-            <!-- Contacto -->
-            <section class="card">
-                <h2>Contacto</h2>
+                <section class="card" id="proyectos">
+                    <span class="badge">NUEVO</span>
+                    <h2>Proyectos</h2>
 
-                <form>
-                    <input type="text" placeholder="Nombre">
-                    <input type="email" placeholder="Email">
-                    <textarea placeholder="Mensaje"></textarea>
-                    <button>Enviar</button>
-                </form>
-            </section>
+                    <article class="proyecto">
+                        <h3>Landing Page</h3>
+                        <p>Mi primera página web profesional usando HTML y CSS.</p>
+                        <a href="https://github.com/17Sagara/01-landing" target="_blank">Ver código</a>
+                    </article>
 
-            <!-- Proyectos -->
-            <section class="card proyectos">
-                <!-- Etiqueta flotante -->
-                <span class="badge">NUEVO</span>
+                    <article class="proyecto">
+                        <h3>Perfil Frontend</h3>
+                        <p>Portafolio personal con diseño responsive.</p>
+                    </article>
+                </section>
 
-                <h2>Mis avances</h2>
-
-                <article class="proyecto">
-                    <h3>Aprendiendo HTML</h3>
-                    <p>Estoy dominando la estructura web.</p>
-                </article>
-
-                <article class="proyecto">
-                    <h3>Mi camino</h3>
-                    <p>Construyendo mi carrera como desarrollador.</p>
-                </article>
-            </section>
+            </div>
 
         </div>
+
+        <!-- ================= CONTACTO ================= -->
+        <section class="card" id="contacto">
+            <h2>Contacto</h2>
+
+            <form>
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu correo" required>
+                <textarea placeholder="Tu mensaje" required></textarea>
+                <button>Enviar mensaje</button>
+            </form>
+        </section>
 
     </main>
 
     <!-- ================= FOOTER ================= -->
     <footer>
-        <p>© 2026 - Jhon Rodriguez</p>
+        <p>© 2026 - Jhon Rodríguez | Frontend Developer</p>
     </footer>
 
 </body>
