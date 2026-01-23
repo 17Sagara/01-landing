@@ -1,169 +1,304 @@
 /* Reset de modelo de caja */
-* {
-  box-sizing: border-box; /* Evita errores de tamaño */
+* {/* Asterisco * → Selector universal (basicamente dice que se aplicara a todo en la pagina)*/
+  box-sizing: border-box; /* codigo moderno que evita errores de tamaño como pasaba antes*/
 }
 
 /* ================= ESTILOS GENERALES ================= */
 
-body {
-  background-color: #f4f6f8; /* Color de fondo */
+body { /* Esta parte es la base visual de toda tu web. Es todo lo que se ve en la página web. */
+  background-color: #f4f6f8; /* Color de fondo "color fondo general" */
   font-family: Arial, Helvetica, sans-serif; /* Fuente */
-  margin: 0; /* Quita márgenes */
-  color: #222; /* Texto oscuro */
+  margin: 0; /* Quita márgenes automaticas que tienen los navegadores dejando que nuestra web llegue a los bordes */
+  color: #222; /* Color texto del contenido*/
 }
 
 /* ================= HEADER ================= */
 
-.perfil {
-  background-color: #0a2540; /* Azul oscuro */
-  color: white; /* Texto blanco */
+.perfil { /* “Todo lo que esté clase perfil tendrá estos estilos”.*/
+  background-color: #0a2540; /* Azul oscuro "color portada" */
+  color: white; /* Texto blanco "texto en la portada"*/
   text-align: center; /* Centra contenido */
-  padding: 30px;
+  padding: 30px; /* espacio interno, agrega 30px o lo que le pongamos entre elementos para que no se vea apretado */
 }
 
-.perfil img {
-  width: 120px; /* Tamaño imagen */
-  border-radius: 50%; /* Circular */
-  border: 4px solid white;
-}
+.perfil img { /* “Todas las imagenes que esten en la clase perfil tendrá estos estilos”.*/
+  width: 150px; /* Tamaño imagen de perfil */
+  border-radius: 50%; /* Curbatura de las esquinas de la foto de perfil al dejarla en 50% de ve Circular */
+  border: 4px solid white;/* Borde de la foto de perfil */
+} 
 
-/* Redes sociales */
-.social a {
-  background: white;
-  color: #0a2540;
-  padding: 8px 15px;
-  margin: 5px;
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 20px;
-  font-weight: bold;
-  transition: 0.3s;
+/* Redes sociales o botones debajo de la foto de perfil */
+.social a { /* “Todo lo que esté clase social tendrá estos estilos”.*/
+  background: white; /* Color del boton */
+  color: #0a2540; /* Color de la letra en el boton */
+  padding: 8px 15px;/* Tamaño del boton, hace que el boton no este pegado al texto se vea comodo para hacer clic*/
+  margin: 5px; /* Espacio entre un boton y el otro */
+  display: inline-block; /* Texto que se comporta como caja - permite: padding, bordes redondeados, tamaño propio */
+  text-decoration: none; /* Espacio entre un boton y el otro */
+  border-radius: 20px; /* Redondea las esquinas dando sensacion de boton moderno */
+  font-weight: bold; /* Texto en negrita */
+  transition: 0.3s; /* Esto prepara al botón para animaciones suaves cuando: pases el mause, cambie el color */
 }
 
 /* Hover en botones */
-.social a:hover {
-  background: #dbe6f2;
+.social a:hover {  /* Cuando el mouse esté encima (hover) de un <a> que esté dentro de .social, aplica estos estilos - Cuando pasas el cursor sobre GitHub o LinkedIn, este estilo se activa. */
+  background: #6989aa;/* Color resaltante al pasar el mause por GitHub o LinkedIn*/
 }
 
 /* ================= MENÚ ================= */
 
-nav {
-  background: white;
-  padding: 15px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+nav { /* “Todo lo que esté clase nav tendrá estos estilos en este caso especificamente el menu de navegación”.*/
+  background: rgb(255, 255, 255); /* Color barra del menu de navegacion */
+  padding: 15px; /* Espacio interno dentro del menu */
+  text-align: center; /* centra los enlaces dentro del menu */
+  position: sticky; /* efecto profesional */
+  top: 0; /* le dice a sticky Quédate pegado exactamente al borde superior de la pantalla. */
+  z-index: 1000; /* Esto controla la gerarquia de quien va encima de que entre mayor el número mas arriba visualmente */
 }
 
 nav a {
-  color: #0a2540;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
+  color: #0a2540;          /* Define el color del texto de los enlaces del menú (azul oscuro) */
+  margin: 0 15px;         /* Agrega espacio a la izquierda y derecha entre cada enlace */
+  text-decoration: none; /* Quita el subrayado típico de los enlaces */
+  font-weight: bold;     /* Hace el texto más grueso (negrita) */
+  transition: color 0.3s;/* Hace que el cambio de color sea suave cuando pasa el mouse */
 }
 
+
 /* Hover del menú */
-nav a:hover {
-  color: #1e4e8c;
+nav a:hover {              /* Se activa cuando el mouse pasa sobre un enlace del menú */
+  color: #1e4e8c;          /* Cambia el color del texto a un azul más claro */
 }
 
 /* ================= LAYOUT ================= */
+/* Esta sección controla cómo se organiza la estructura principal de la página */
 
 main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
+  max-width: 1100px;   
+  /* Define el ancho máximo que puede tener el contenido.
+     Evita que la página se estire demasiado en pantallas grandes */
+
+  margin: auto;       
+  /* Centra el contenido horizontalmente dentro de la ventana del navegador */
+
+  padding: 20px;      
+  /* Agrega espacio interno para que el contenido no quede pegado a los bordes */
 }
 
 .grid {
-  display: flex;
-  gap: 20px;
+  display: flex;   
+  /* Activa Flexbox, permitiendo que los elementos hijos (columnas)
+     se alineen uno al lado del otro */
+
+  gap: 20px;       
+  /* Agrega espacio entre las columnas */
 }
 
 .columna {
-  flex: 1;
+  flex: 1;   
+  /* Hace que cada columna ocupe el mismo ancho disponible
+     dentro del contenedor flex (.grid) */
 }
 
 /* ================= TARJETAS ================= */
+/* Aquí empiezan los estilos de las tarjetas que contienen el contenido */
 
 .card {
-  background: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  position: relative;
+
+  background: white; 
+  /* Define el fondo de cada tarjeta como blanco,
+     para que contraste con el fondo gris del body */
+
+  padding: 20px; 
+  /* Agrega espacio dentro de la tarjeta
+     para que el texto no quede pegado a los bordes */
+
+  margin-bottom: 20px; 
+  /* Crea separación vertical entre una tarjeta y otra */
+
+  border-radius: 8px; 
+  /* Redondea las esquinas de la tarjeta
+     dando una apariencia más moderna y elegante */
+
+  position: relative; 
+  /* Permite que los elementos internos posicionados de forma absoluta
+     (como el badge "NUEVO") se coloquen tomando esta tarjeta como referencia */
 }
 
-/* ================= BADGE ================= */
 
+/* ================= BADGE ================= (icono azul en la esquina de proyectos que dice "NUEVO") */
+/* Comentario visual para identificar esta sección del CSS */
+
+/* Selecciona todos los elementos que tengan class="badge" */
 .badge {
+
   position: absolute;
+  /* Permite mover este elemento libremente dentro de su contenedor.
+     Se posiciona respecto al primer elemento padre que tenga
+     position: relative (en este caso, la tarjeta .card) */
+
   top: 10px;
+  /* Lo separa 10 píxeles desde la parte superior de la tarjeta */
+
   right: 10px;
+  /* Lo separa 10 píxeles desde el lado derecho de la tarjeta */
+
   background: #0a2540;
+  /* Color de fondo azul oscuro, igual al del header.
+     Da coherencia visual al diseño */
+
   color: white;
+  /* Hace que el texto (por ejemplo: "NUEVO") sea blanco */
+
   padding: 5px 10px;
+  /* Agrega espacio interno:
+     5px arriba y abajo, 10px a los lados,
+     haciendo que el badge se vea como una cápsula */
+
   border-radius: 20px;
+  /* Redondea mucho las esquinas.
+     Esto crea el efecto de etiqueta o píldora */
+
 }
+
 
 /* ================= PROYECTOS ================= */
+/* Comentario visual para separar esta sección del CSS */
 
+/* Selecciona todos los elementos que tengan class="proyecto" */
 .proyecto {
+
   background: #fafafa;
+  /* Color de fondo gris muy claro.
+     Hace que cada proyecto se vea como una tarjeta suave */
+
   padding: 15px;
+  /* Espacio interno entre el contenido (texto, links) y los bordes.
+     Evita que el texto quede pegado */
+
   border-left: 4px solid #0a2540;
+  /* Crea una línea azul gruesa en el lado izquierdo.
+     Sirve como detalle visual que marca cada proyecto */
+
   margin-top: 15px;
+  /* Separa cada proyecto del anterior hacia arriba,
+     evitando que queden pegados */
+
 }
+
 
 /* ================= FORMULARIO ================= */
+/* Título visual para identificar la sección del formulario */
 
+/* Selecciona TODOS los inputs y textareas que estén dentro de un formulario */
 form input,
 form textarea {
+
   width: 100%;
+  /* Hace que los campos ocupen todo el ancho del formulario */
+
   padding: 10px;
+  /* Espacio interno entre el texto y los bordes del input.
+     Hace que se vea más grande y cómodo para escribir */
+
   margin-bottom: 10px;
+  /* Espacio debajo de cada campo para separarlos */
 }
 
-/* Estilo al enfocar */
+
+/* Estilo cuando el usuario hace clic o escribe en un campo */
 form input:focus,
 form textarea:focus {
+
   outline: 2px solid #0a2540;
+  /* Dibuja un borde azul alrededor del campo activo
+     para indicar dónde está escribiendo el usuario */
+
 }
 
-/* Botón */
+
+/* ================= BOTÓN ================= */
+/* Estilo para todos los botones */
+
 button {
+
   background: #0a2540;
+  /* Color de fondo azul oscuro */
+
   color: white;
+  /* Color del texto del botón */
+
   border: none;
+  /* Quita el borde feo por defecto del navegador */
+
   padding: 12px;
+  /* Tamaño interno del botón (lo hace más grande) */
+
   cursor: pointer;
+  /* Hace que el mouse se convierta en una manito al pasar encima */
+
 }
 
-/* Hover botón */
+
+/* Estilo cuando el mouse pasa sobre el botón */
 button:hover {
+
   background: #1e4e8c;
+  /* Cambia a un azul más claro al pasar el mouse
+     para dar efecto visual interactivo */
+
 }
+
 
 /* ================= FOOTER ================= */
+/* Título visual para indicar que aquí empiezan los estilos del pie de página */
 
 footer {
+  /* Selecciona la etiqueta <footer> del HTML */
+
   background: #0a2540;
+  /* Color de fondo azul oscuro para diferenciar el pie de página */
+
   color: white;
+  /* Color blanco para el texto dentro del footer */
+
   text-align: center;
+  /* Centra horizontalmente el texto (©, nombre, etc.) */
+
   padding: 20px;
+  /* Agrega espacio interno alrededor del contenido
+     para que no quede pegado a los bordes */
+
 }
 
+
 /* ================= RESPONSIVE ================= */
+/* Título para indicar que aquí empiezan los estilos para móviles y tablets */
 
 @media (max-width: 768px) {
+  /* Significa:
+     "Cuando la pantalla tenga 768px o menos (celular o tablet),
+      aplica los estilos que están dentro de este bloque" */
+
   .grid {
-    flex-direction: column; /* Columnas una debajo de otra */
+    /* Selecciona el contenedor principal de columnas */
+    
+    flex-direction: column;
+    /* Cambia la dirección de Flexbox:
+       en vez de columnas una al lado de la otra,
+       ahora se ponen una debajo de otra */
   }
 
   nav a {
+    /* Selecciona los enlaces del menú */
+
     display: block;
+    /* Hace que cada enlace ocupe toda una línea,
+       en vez de estar uno al lado del otro */
+
     margin: 10px;
+    /* Agrega espacio arriba y abajo entre cada enlace,
+       para que se puedan tocar fácilmente con el dedo */
   }
 }
+
