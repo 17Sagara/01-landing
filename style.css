@@ -50,7 +50,13 @@ body { /* Esta parte es la base visual de toda tu web. Es todo lo que se ve en l
 nav { /* “Todo lo que esté clase nav tendrá estos estilos en este caso especificamente el menu de navegación”.*/
   background: rgb(255, 255, 255); /* Color barra del menu de navegacion */
   padding: 15px; /* Espacio interno dentro del menu */
-  text-align: center; /* centra los enlaces dentro del menu */
+
+  display: flex;                   /* Activa Flexbox */
+  justify-content: center;         /* Centra los enlaces horizontalmente */
+  align-items: center;             /* Los centra verticalmente */
+  gap: 30px;                       /* Espacio entre botones */
+
+  /*text-align: center;  centra los enlaces dentro del menu */
   position: sticky; /* efecto profesional */
   top: 0; /* le dice a sticky Quédate pegado exactamente al borde superior de la pantalla. */
   z-index: 1000; /* Esto controla la gerarquia de quien va encima de que entre mayor el número mas arriba visualmente */
@@ -58,15 +64,20 @@ nav { /* “Todo lo que esté clase nav tendrá estos estilos en este caso espec
 
 nav a {
   color: #0a2540;          /* Define el color del texto de los enlaces del menú (azul oscuro) */
-  margin: 0 15px;         /* Agrega espacio a la izquierda y derecha entre cada enlace */
   text-decoration: none; /* Quita el subrayado típico de los enlaces */
   font-weight: bold;     /* Hace el texto más grueso (negrita) */
-  transition: color 0.3s;/* Hace que el cambio de color sea suave cuando pasa el mouse */
+  
+  padding: 10px 15px;        /* Ahora son botones */
+  border-radius: 8px;       /* Bordes suaves */
+
+  /* margin: 0 15px;         Agrega espacio a la izquierda y derecha entre cada enlace */
+  transition: all 0.3s ease;/* Hace que el cambio de color sea suave cuando pasa el mouse */
 }
 
 
 /* Hover del menú */
 nav a:hover {              /* Se activa cuando el mouse pasa sobre un enlace del menú */
+  background: #e8f0ff;      /* Fondo tipo botón */
   color: #1e4e8c;          /* Cambia el color del texto a un azul más claro */
 }
 
@@ -90,14 +101,27 @@ main {
   /* Activa Flexbox, permitiendo que los elementos hijos (columnas)
      se alineen uno al lado del otro */
 
-  gap: 20px;       
+  gap: 30px;       
   /* Agrega espacio entre las columnas */
+
+  /* Alineación profesional */
+  /*justify-content: space-between;  separa las columnas horizontalmente *//* Esto empuja las columbas a los extremos */
+  /* align-items: center;           las centra verticalmente */
+   align-items: flex-start; /*Alinea todos los elementos hijos desde ARRIBA del contenedor*/
 }
 
 .columna {
   flex: 1;   
   /* Hace que cada columna ocupe el mismo ancho disponible
      dentro del contenedor flex (.grid) */
+}
+
+.columna:first-child {
+  flex: 0.8;   /* Sidebar más angosta */
+}
+
+.columna:last-child {
+  flex: 1.2;   /* Contenido más ancho */
 }
 
 /* ================= TARJETAS ================= */
@@ -123,6 +147,47 @@ main {
   position: relative; 
   /* Permite que los elementos internos posicionados de forma absoluta
      (como el badge "NUEVO") se coloquen tomando esta tarjeta como referencia */
+
+  /* Sombra base de la tarjeta (cuando NO está el mouse encima) */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+/* 
+  0  = no se mueve horizontalmente
+  10px = baja la sombra hacia abajo
+  20px = la hace más difusa (más suave)
+  rgba(0,0,0,0.08) = negro con 8% de opacidad (sombra suave)
+  Esto hace que la tarjeta "flote" sobre el fondo
+*/
+
+/* Prepara animaciones suaves cuando algo cambie */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/*
+  transform 0.3s → la animación de movimiento dura 0.3 segundos
+  box-shadow 0.3s → la sombra también cambia suavemente
+  ease → hace que la animación empiece y termine suave (no brusca)
+*/
+  display: flex;             
+  flex-direction: column;   /* Los elementos van de arriba hacia abajo */
+  gap: 10px;                /* Espacio entre título, texto, botones */
+}
+
+/* Cuando el mouse pasa por encima de una tarjeta */
+.card:hover {
+
+  /* Mueve la tarjeta hacia arriba 8 píxeles */
+    transform: translateY(-8px);
+  /*
+    translateY(-8px) = la tarjeta sube
+    Da el efecto de que la tarjeta "se eleva"
+  */
+
+  /* Aumenta la sombra para simular que está más lejos del fondo */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  /*
+    20px = la sombra cae más abajo
+    40px = la sombra es más grande
+    0.15 = más oscura
+    Esto refuerza el efecto de tarjeta flotando
+  */
 }
 
 
@@ -158,7 +223,6 @@ main {
   border-radius: 20px;
   /* Redondea mucho las esquinas.
      Esto crea el efecto de etiqueta o píldora */
-
 }
 
 
@@ -184,11 +248,18 @@ main {
   /* Separa cada proyecto del anterior hacia arriba,
      evitando que queden pegados */
 
+  display: flex; /*Le dice al navegador:“Voy a organizar los elementos hijos con reglas inteligentes de alineación”.Sin esto, las siguientes líneas no funcionan.*/
+  flex-direction: column;  /*Cambia la dirección del Flexbox a vertical.*/
+  gap: 8px; /*Agrega 8 píxeles de espacio entre cada elemento hijo. Sin gap, todo quedaría pegado:*/
 }
-
 
 /* ================= FORMULARIO ================= */
 /* Título visual para identificar la sección del formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 /* Selecciona TODOS los inputs y textareas que estén dentro de un formulario */
 form input,
@@ -288,17 +359,40 @@ footer {
        en vez de columnas una al lado de la otra,
        ahora se ponen una debajo de otra */
   }
+  .columna:first-child,        /* Selecciona la PRIMERA columna dentro del layout (normalmente el sidebar) */
+  .columna:last-child {        /* Selecciona la ÚLTIMA columna dentro del layout (normalmente el contenido principal) */
 
-  nav a {
-    /* Selecciona los enlaces del menú */
+  flex: 1;                   /* Hace que ambas columnas tengan el MISMO ancho.
+                                En móviles: cada una ocupa el 100% del ancho
+                                porque ahora están una debajo de la otra */
+}
+
+
+/* ================= MENÚ RESPONSIVE ================= */
+
+  nav {                        /* Selecciona la barra de navegación (el menú) */
+
+    flex-direction: column;   /* Cambia el menú de horizontal a vertical.
+                                En PC los botones están uno al lado del otro.
+                                En celular se ponen uno debajo del otro */
+
+    align-items: center;      /* Centra los botones horizontalmente dentro del menú */
+
+    gap: 15px;                /* Agrega espacio vertical entre cada botón del menú,
+                                para que no queden pegados y se puedan tocar bien con el dedo */
+}
+
+  /*El siguiente codigo se bloqueo para usar el nav de arriba mejor*/
+  /*nav a {
+    Selecciona los enlaces del menú 
 
     display: block;
-    /* Hace que cada enlace ocupe toda una línea,
-       en vez de estar uno al lado del otro */
+     Hace que cada enlace ocupe toda una línea,
+       en vez de estar uno al lado del otro 
 
     margin: 10px;
-    /* Agrega espacio arriba y abajo entre cada enlace,
-       para que se puedan tocar fácilmente con el dedo */
-  }
+    Agrega espacio arriba y abajo entre cada enlace,
+       para que se puedan tocar fácilmente con el dedo 
+  }*/
 }
 
