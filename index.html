@@ -81,6 +81,25 @@
     <main>
       <!-- Es donde va todo el contenido -->
 
+      <!-- ================= HERO (Landing principal) ================= -->
+      <!-- Sección HERO: el bloque principal de la landing page -->
+      <section class="hero">
+        <!-- Título principal de la página (lo más importante para Google y usuarios) -->
+        <h1>Desarrollador Web Frontend</h1>
+
+        <!-- Texto que explica qué haces y qué valor ofreces -->
+        <p>
+          Creo páginas web modernas, rápidas y adaptables que convierten
+          visitantes en clientes.
+        </p>
+
+        <!-- Botón principal (Call To Action)
+       href="#contacto" hace que al hacer clic baje hasta la sección contacto
+       class="cta" conecta con los estilos del botón en CSS -->
+        <a href="#contacto" class="cta">Contáctame</a>
+      </section>
+      <!-- Fin del HERO -->
+
       <div class="grid">
         <!-- div es una caja genérica. grid es una clase CSS que dice "Esta caja organiza su contenido en columnas" ESTRUCTURA -->
 
@@ -106,7 +125,8 @@
             <!-- Aca tambien "card" es para referencia .card en el css para estilos visuales y id:"habilidades" para referenciarla con el menu -->
             <h2>Habilidades</h2>
             <!-- Título de la sección -->
-            <ul><!-- Lista desordenada (no tiene numeracion)-->
+            <ul>
+              <!-- Lista desordenada (no tiene numeracion)-->
               <li>HTML5 semántico</li>
               <!-- li es un elemento de lista -->
               <li>CSS3 (Flexbox, responsive)</li>
@@ -123,22 +143,22 @@
 
           <section class="card" id="proyectos">
             <!-- Aca tambien "card" es para referencia .card en el css para estilos visuales y id:"proyectos" para referenciarla con el menu -->
-            
+
             <span class="badge">NUEVO</span>
             <!-- span es una etiqueta pequeña de texto y con la clase .badge en css NUEVO queda flotando arriba de la tarjeta como sticker-->
-           
+
             <h2>Proyectos</h2>
             <!-- Titulo principal para esta sección -->
 
             <article class="proyecto">
               <!-- Esto es una pieza de contenido independiente "articulo" -->
-              
+
               <h3>Landing Page</h3>
               <!-- Titulo principal para esta sección -->
-              
+
               <p>Mi primera página web profesional usando HTML y CSS.</p>
               <!-- Parrafo -->
-              
+
               <a href="https://github.com/17Sagara/01-landing" target="_blank"
                 >Ver código</a
               >
@@ -157,10 +177,13 @@
       </div>
 
       <!-- ================= CONTACTO ================= -->
-      <section class="card" id="contacto"> <!-- section Es un bloque semántico → una sección importante del sitio - class="card" Le aplica el diseño de tarjeta del CSS - id="contacto" Permite que el menú vaya aquí cuando se hace clic    -->
-        <h2>Contacto</h2> <!-- Titulo principal para esta sección -->
+      <section class="card" id="contacto">
+        <!-- section Es un bloque semántico → una sección importante del sitio - class="card" Le aplica el diseño de tarjeta del CSS - id="contacto" Permite que el menú vaya aquí cuando se hace clic    -->
+        <h2>Contacto</h2>
+        <!-- Titulo principal para esta sección -->
 
-        <form> <!-- con form damos a entender que el usuario va a escribir datos que pueden enviarse sin el los campos serian decorativos-->
+        <form>
+          <!-- con form damos a entender que el usuario va a escribir datos que pueden enviarse sin el los campos serian decorativos-->
           <!-- Campo nombre --><!-- input Campo donde el usuario escribe - type="text" Texto normal - placeholder Texto gris de ayuda - requiered No deja enviar si está vacío -->
           <input type="text" placeholder="Tu nombre" required />
 
