@@ -2,12 +2,10 @@
 * {
   /* Asterisco * → Selector universal (basicamente dice que se aplicara a todo en la pagina)*/
   box-sizing: border-box; /* codigo moderno que evita errores de tamaño como pasaba antes*/
-
   scroll-behavior: smooth;
 }
 
 /* ================= ESTILOS GENERALES ================= */
-
 body {
   /* Esta parte es la base visual de toda tu web. Es todo lo que se ve en la página web. */
   background-color: #f4f6f8; /* Color de fondo "color fondo general" */
@@ -17,7 +15,6 @@ body {
 }
 
 /* ================= HEADER ================= */
-
 .perfil {
   /* “Todo lo que esté clase perfil tendrá estos estilos”.*/
   background-color: #0a2540; /* Azul oscuro "color portada" */
@@ -97,21 +94,18 @@ nav a:hover {
 /* ===== HERO ===== */
 /* Estilos generales del bloque principal (hero) */
 .hero {
-
-  text-align: center; 
+  text-align: center;
   /* Centra TODO el contenido del hero (título, texto y botón) */
 
   padding: 60px 20px;
   /* 60px arriba y abajo → hace que el hero sea alto y elegante
      20px a los lados → evita que el texto quede pegado en móvil */
-     
-   background: linear-gradient(to bottom, #ffffff, #f4f6f8);
-}
 
+  background: linear-gradient(to bottom, #ffffff, #f4f6f8);
+}
 
 /* Estilos del título principal dentro del hero */
 .hero h1 {
-
   font-size: 2.5rem;
   /* Hace el título grande.
      2.5rem se adapta al tamaño de pantalla automáticamente */
@@ -120,10 +114,8 @@ nav a:hover {
   /* Azul oscuro corporativo (el mismo que usas en header y menú) */
 }
 
-
 /* Estilos del párrafo dentro del hero */
 .hero p {
-
   font-size: 1.2rem;
   /* Texto más grande que lo normal para que se lea fácil */
 
@@ -139,29 +131,28 @@ nav a:hover {
      auto a los lados → centra el párrafo horizontalmente */
 }
 
-
 /* Botón principal (Call To Action) */
-
 .cta {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 14px 32px;
-
-  background: #0a2540;
-  color: white;
-
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 30px;
-
-  transition: 0.3s;
+  /* Selecciona cualquier elemento que tenga class="cta" (tu botón principal) */
+  display: inline-block; /* Hace que el botón se comporte como una caja (permite padding, tamaño y margen) */
+  margin-top: 25px; /* Agrega espacio arriba para separarlo del texto */
+  padding: 14px 32px; /* 14px arriba y abajo, 32px a los lados → botón grande y cómodo para hacer clic */
+  background: #0a2540; /* Color de fondo azul oscuro (estilo corporativo) */
+  color: white; /* Color del texto del botón */
+  text-decoration: none; /* Quita el subrayado del enlace para que parezca un botón real */
+  font-weight: bold; /* Hace el texto más grueso y visible */
+  border-radius: 30px; /* Bordes muy redondeados → efecto píldora moderno */
+  transition: 0.3s; /* Hace que los cambios (color y tamaño) sean suaves al pasar el mouse */
 }
 
+/* Cuando el usuario pasa el mouse sobre el botón */
 .cta:hover {
-  background: #1e4e8c;
-  transform: scale(1.05);
+  /* Hover = estado cuando el cursor está encima del botón */
+  background: #1e4e8c; /* Cambia el azul a uno más claro para dar efecto interactivo */
+  transform: scale(
+    1.05
+  ); /* Aumenta el tamaño un 5% → efecto de botón que "salta" */
 }
-
 
 main {
   max-width: 1100px;
@@ -239,7 +230,7 @@ main {
   /* Permite que los elementos internos posicionados de forma absoluta
      (como el badge "NUEVO") se coloquen tomando esta tarjeta como referencia */
 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 
   /* Sombra base de la tarjeta (cuando NO está el mouse encima) */
   /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);*/
@@ -334,13 +325,24 @@ main {
   /* Crea una línea azul gruesa en el lado izquierdo.
      Sirve como detalle visual que marca cada proyecto */
 
-  margin-top: 15px;
+  margin-top: 10px;
   /* Separa cada proyecto del anterior hacia arriba,
      evitando que queden pegados */
 
   display: flex; /*Le dice al navegador:“Voy a organizar los elementos hijos con reglas inteligentes de alineación”.Sin esto, las siguientes líneas no funcionan.*/
   flex-direction: column; /*Cambia la dirección del Flexbox a vertical.*/
-  gap: 8px; /*Agrega 8 píxeles de espacio entre cada elemento hijo. Sin gap, todo quedaría pegado:*/
+  gap: 10px; /*Agrega 8 píxeles de espacio entre cada elemento hijo. Sin gap, todo quedaría pegado:*/
+}
+
+.proyecto a {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 /* ================= FORMULARIO ================= */
@@ -430,43 +432,54 @@ footer {
       aplica los estilos que están dentro de este bloque" */
 
   .grid {
-    /* Selecciona el contenedor principal de columnas */
+    /* Selecciona el contenedor principal que organiza las columnas del layout */
+    /* flex-direction: column; */ /* (Esto era de Flexbox)
+                                               Si estuviera activo, haría que las columnas se apilen una debajo de otra.
+                                               Ya no se usa porque ahora el layout funciona con CSS Grid */
 
-    /*flex-direction: column;*/
-    /* Cambia la dirección de Flexbox:
-       en vez de columnas una al lado de la otra,
-       ahora se ponen una debajo de otra */
-
-    /*grid-template-columns: 1fr;  /* En móvil → una sola columna (Remplazamos a flex-direction por grid)*/
+    /* grid-template-columns: 1fr; */ /* (Versión móvil con Grid)
+                                               Si esta línea se activa, toda la sección se convierte en UNA sola columna.
+                                               Es el equivalente a “modo celular” */
 
     grid-template-columns: minmax(260px, 1fr) 2fr;
+    /* Crea DOS columnas con CSS Grid:
+     1) La primera columna (sidebar):
+        - Nunca será menor de 260px
+        - Puede crecer hasta ocupar 1 fracción del espacio disponible
+     2) La segunda columna (contenido principal):
+        - Ocupa 2 fracciones del espacio
+        - Siempre es el doble de ancha que la primera */
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    /* Agrega una sombra suave al contenedor de columnas,
+     dando un efecto de profundidad y diseño moderno */
   }
-  /*.columna:first-child,        /* Selecciona la PRIMERA columna dentro del layout (normalmente el sidebar) */
-  /*.columna:last-child {        /* Selecciona la ÚLTIMA columna dentro del layout (normalmente el contenido principal) */
 
-  /*flex: 1;                   /* Hace que ambas columnas tengan el MISMO ancho.
-                                En móviles: cada una ocupa el 100% del ancho
-                                porque ahora están una debajo de la otra */
+  /* .columna:first-child, */ /* (Flexbox antiguo)
+                                               Seleccionaba la primera columna (normalmente el sidebar) */
+  /* .columna:last-child { */ /* (Flexbox antiguo)
+                                               Seleccionaba la segunda columna (contenido principal) */
+  /* flex: 1; */ /* (Flexbox antiguo)
+                                               Hacía que ambas columnas ocuparan el mismo ancho.
+                                               Ya no se usa porque ahora el layout está controlado por Grid */
 
   /* ================= MENÚ RESPONSIVE ================= */
-
   nav {
-    /* Selecciona la barra de navegación (el menú) */
+    /* Selecciona la barra de navegación <nav> (el menú principal del sitio) */
 
-    flex-direction: row; /* PC: horizontal */
+    flex-direction: row; /* Organiza los enlaces del menú en fila horizontal (modo PC: uno al lado del otro) */
 
-    /*flex-direction: column;   /* Cambia el menú de horizontal a vertical.
-                                En PC los botones están uno al lado del otro.
-                                En celular se ponen uno debajo del otro */
+    /* flex-direction: column;  /* Esta línea está comentada.
+                                Si la activaras, el menú pasaría a ser vertical
+                                (modo móvil: botones uno debajo del otro) */
 
-    justify-content: center;
+    justify-content: center; /* Centra todos los enlaces del menú horizontalmente dentro de la barra */
 
-    /*align-items: center;      /* Centra los botones horizontalmente dentro del menú */
+    /* align-items: center;     /* Esta línea está comentada.
+                                Si se activara, centraría los enlaces verticalmente dentro del menú */
 
-    gap: 30px; /* Agrega espacio vertical entre cada botón del menú,
-                                para que no queden pegados y se puedan tocar bien con el dedo */
+    gap: 30px; /* Crea 30px de espacio entre cada botón del menú
+                                para que no queden pegados y se vean más claros y profesionales */
   }
 
   /*El siguiente codigo se bloqueo para usar el nav de arriba mejor*/
@@ -494,11 +507,18 @@ footer {
   }
 }
 
-h1, h2, h3 {
-  line-height: 1.2;
+h1,
+h2,
+h3 {
+  /* Selecciona TODOS los títulos: h1, h2 y h3 */
+  line-height: 1.2; /* Define la altura entre las líneas del texto.
+                             1.2 significa que las líneas estarán muy juntas,
+                             haciendo los títulos más compactos, fuertes y elegantes */
 }
 
 p {
-  line-height: 1.6;
+  /* Selecciona TODOS los párrafos <p> del sitio */
+  line-height: 1.6; /* Define la distancia entre líneas del texto.
+                             1.6 hace que el texto sea más aireado,
+                             más cómodo de leer y más profesional */
 }
-

@@ -3,6 +3,8 @@
   <head>
     <!-- CABEZA DE LA PAGINA WEB -->
 
+    <link rel="icon" href="img/favicon.png" type="image/png">
+
     <!-- Permite usar caracteres como ñ, tildes y emojis -->
     <meta charset="UTF-8" />
 
@@ -10,10 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO básico: descripción para Google -->
+    <!-- Etiqueta meta: se usa para dar información sobre la página al navegador y a Google -->
     <meta
       name="description"
       content="Portafolio de Jhon Rodríguez, Frontend Developer especializado en HTML, CSS y diseño web."
     />
+    <!-- name Indica que esta meta etiqueta describe el contenido de la página -->
+    <!-- Texto que leerán Google, Bing y otros buscadores para mostrar tu página en los resultados -->
 
     <!-- Palabras clave para buscadores -->
     <meta
@@ -26,7 +31,9 @@
 
     <!-- Título que aparece en la pestaña -->
     <title>Jhon Rodríguez | Frontend Developer</title>
-
+    <meta property="og:title" content="Jhon Rodríguez | Frontend Developer">
+    <meta property="og:description" content="Portafolio profesional de desarrollo web frontend.">
+    <meta property="og:type" content="website">
     <!-- Conecta el HTML con el archivo CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -105,8 +112,7 @@
 
         <!-- ===== COLUMNA IZQUIERDA ===== -->
         <div class="columna">
-          <!-- Este div representa una columba de la pagina, esto hace que se divida en 2 columnas y representa la izquierda | Columna 1 | Columna 2 |
- -->
+          <!-- Este div representa una columba de la pagina, esto hace que se divida en 2 columnas y representa la izquierda | Columna 1 | Columna 2 |-->
 
           <section class="card" id="sobre">
             <!-- Bloques (“Este es un bloque de información” - section es semántico: indica una sección temática - id="sobre" sirve para que el menú <a href="#sobre"> funcione - class="card" permite darle estilo visual tipo tarjeta desde .card en css.) -->
@@ -152,16 +158,12 @@
 
             <article class="proyecto">
               <!-- Esto es una pieza de contenido independiente "articulo" -->
-
               <h3>Landing Page</h3>
               <!-- Titulo principal para esta sección -->
-
               <p>Mi primera página web profesional usando HTML y CSS.</p>
               <!-- Parrafo -->
-
-              <a href="https://github.com/17Sagara/01-landing" target="_blank"
-                >Ver código</a
-              >
+              <a href="https://17sagara.github.io/01-landing/" rel="noopener noreferrer" target="_blank" aria-label="Ver pagina">Ver pagina</a> 
+              <a href="https://github.com/17Sagara/01-landing" rel="noopener noreferrer" target="_blank" aria-label="Ver código">Ver código</a>
               <!-- target="_blank" Hace que el enlace se abra en otra pestaña. -->
             </article>
 
@@ -172,27 +174,98 @@
               <p>Portafolio personal con diseño responsive.</p>
               <!-- Parrafo -->
             </article>
-          </section>
-        </div>
-      </div>
+
+            <article class="proyecto">
+  <h3>Contador Interactivo</h3>
+  <p>
+    Aplicación desarrollada con JavaScript que permite incrementar,
+    decrementar y reiniciar valores en tiempo real mediante manipulación
+    del DOM y manejo de eventos.
+  </p>
+  <small>Tecnologías: HTML | CSS | JavaScript</small>
+  <br><br>
+  <a href="https://17sagara.github.io/Contador-app/" rel="noopener noreferrer" target="_blank" aria-label="Ver demo">Ver demo</a>
+  <a href="https://github.com/17Sagara/contador-app" rel="noopener noreferrer" target="_blank" aria-label="Ver código">Ver código</a>
+</article>
+
+<article class="proyecto">
+  <h3>Gestor de Tareas Interactivo</h3>
+  <p>
+    Aplicación web que permite agregar y eliminar tareas dinámicamente
+    utilizando JavaScript, DOM y eventos para la gestión del estado
+    en tiempo real.
+  </p>
+  <small>Tecnologías: HTML | CSS | JavaScript</small>
+  <br><br>
+  <a href="https://17sagara.github.io/todo-app/" rel="noopener noreferrer" target="_blank" aria-label="Ver demo">Ver demo</a>
+  <a href="https://github.com/17Sagara/todo-app" rel="noopener noreferrer" target="_blank" aria-label="Ver código">Ver código</a>
+</article>
+
+<article class="proyecto">
+  <h3>Calculadora Interactiva con JavaScript</h3>
+  <p>
+    Aplicación web desarrollada con HTML, CSS y JavaScript que permite realizar operaciones matemáticas básicas mediante una interfaz 
+    intuitiva y dinámica. Este proyecto implementa manipulación del DOM, gestión de eventos y validación de entradas en tiempo real, 
+    garantizando una experiencia de usuario fluida y precisa. Diseñada bajo principios de desarrollo frontend moderno, demuestra 
+    habilidades en lógica de programación, estructuración de código y diseño responsivo.
+  </p>
+  <small>Tecnologías: HTML | CSS | JavaScript</small>
+  <br><br>
+  <a href="https://17sagara.github.io/Calculadora-app/" rel="noopener noreferrer" target="_blank" aria-label="Ver demo">Ver demo</a>
+  <a href="https://github.com/17Sagara/Calculadora-app" rel="noopener noreferrer" target="_blank" aria-label="Ver código">Ver código</a>
+</article>
+
+<article class="proyecto">
+  <h3>Sistema de Login Simulado con Validación</h3>
+  <p>
+    Aplicación web que simula un sistema de autenticación de usuario mediante validación de credenciales en el lado del cliente. 
+    Este proyecto implementa manipulación del DOM, control de formularios, validación de datos y gestión de eventos utilizando 
+    JavaScript puro. Incluye retroalimentación visual en tiempo real para mejorar la experiencia del usuario, evidenciando habilidades
+    en lógica de programación y manejo del flujo de interacción en aplicaciones frontend.<br><br>
+    Usuario: admin<br>
+    Password: 1234
+  </p>
+  <small>Tecnologías: HTML | CSS | JavaScript</small>
+  <br><br>
+  <a href="https://17sagara.github.io/Login-simulado/" rel="noopener noreferrer" target="_blank" aria-label="Ver demo">Ver demo</a>
+  <a href="https://github.com/17Sagara/Login-simulado" rel="noopener noreferrer" target="_blank" aria-label="Ver código">Ver código</a>
+</article>
+
+<article class="proyecto">
+  <h3>Mini Carrito de Compras Interactivo</h3>
+  <p>
+Aplicación web que simula el funcionamiento de un carrito de compras dinámico para productos digitales. Permite agregar y eliminar artículos, calcular subtotales y actualizar el total en tiempo real mediante manipulación del DOM con JavaScript puro. Este proyecto implementa estructuras de datos, eventos de usuario y renderizado dinámico de elementos, demostrando habilidades clave en el desarrollo de interfaces interactivas orientadas a e-commerce.
+  </p>
+  <small>Tecnologías: HTML | CSS | JavaScript</small>
+  <br><br>
+  <a href="https://17sagara.github.io/Carrito-compras/" rel="noopener noreferrer" target="_blank" aria-label="Ver demo">Ver demo</a>
+  <a href="https://github.com/17Sagara/Carrito-compras" rel="noopener noreferrer" target="_blank" aria-label="Ver código">Ver código</a>
+</article>
+
+<article class="proyecto">
+  <h3>Calculadora de Promedio de Notas</h3>
+  <p>
+Aplicación web que permite ingresar múltiples calificaciones y calcular automáticamente el promedio académico en tiempo real. Incluye validación de datos, renderizado dinámico de notas y actualización del resultado mediante manipulación del DOM con JavaScript puro. Este proyecto demuestra el uso de eventos, estructuras de datos y lógica condicional para la gestión de información numérica en interfaces interactivas.
+  </p>
+  <small>Tecnologías: HTML | CSS | JavaScript</small>
+  <br><br>
+  <a href="https://17sagara.github.io/Promedio-notas-app/" rel="noopener noreferrer" target="_blank" aria-label="Ver demo">Ver demo</a>
+  <a href="https://github.com/17Sagara/Promedio-notas-app" rel="noopener noreferrer" target="_blank" aria-label="Ver código">Ver código</a>
+</article>
 
       <!-- ================= CONTACTO ================= -->
       <section class="card" id="contacto">
         <!-- section Es un bloque semántico → una sección importante del sitio - class="card" Le aplica el diseño de tarjeta del CSS - id="contacto" Permite que el menú vaya aquí cuando se hace clic    -->
         <h2>Contacto</h2>
         <!-- Titulo principal para esta sección -->
-
         <form>
           <!-- con form damos a entender que el usuario va a escribir datos que pueden enviarse sin el los campos serian decorativos-->
           <!-- Campo nombre --><!-- input Campo donde el usuario escribe - type="text" Texto normal - placeholder Texto gris de ayuda - requiered No deja enviar si está vacío -->
           <input type="text" placeholder="Tu nombre" required />
-
           <!-- Campo email --><!-- input Campo donde el usuario escribe - type="emal" Texto de email - placeholder Texto gris de ayuda - requiered No deja enviar si está vacío -->
           <input type="email" placeholder="Tu correo" required />
-
           <!-- Mensaje --><!-- aca igual a los anteriores solamente que ya no tiene un tipo de texto asignado -->
           <textarea placeholder="Tu mensaje" required></textarea>
-
           <!-- Botón --><!-- type="submit" significa que cuando lo presionen, envía el formulario (por ahora no tiene a donde enviarlo solo es decorativo)-->
           <button type="submit">Enviar mensaje</button>
         </form>
