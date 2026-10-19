@@ -1,524 +1,493 @@
-/* Reset de modelo de caja */
+/* ==========================================================================
+   RESET DE MODELO DE CAJA & CONFIGURACIÓN GLOBAL
+   ========================================================================== */
 * {
-  /* Asterisco * → Selector universal (basicamente dice que se aplicara a todo en la pagina)*/
-  box-sizing: border-box; /* codigo moderno que evita errores de tamaño como pasaba antes*/
+  box-sizing: border-box;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
-/* ================= ESTILOS GENERALES ================= */
+/* Configuración de desplazamiento para móviles (Menú alto vertical) */
+html {
+  scroll-padding-top: 280px;
+}
+
+/* En pantallas grandes el menú es horizontal (más bajo) */
+@media (min-width: 900px) {
+  html {
+    scroll-padding-top: 90px;
+  }
+}
+
+/* ==========================================================================
+   ENTORNO ESTELAR Y GALÁCTICO (Fondo Dinámico Acelerado y Nebulosas)
+   ========================================================================== */
 body {
-  /* Esta parte es la base visual de toda tu web. Es todo lo que se ve en la página web. */
-  background-color: #f4f6f8; /* Color de fondo "color fondo general" */
-  font-family: Arial, Helvetica, sans-serif; /* Fuente */
-  margin: 0; /* Quita márgenes automaticas que tienen los navegadores dejando que nuestra web llegue a los bordes */
-  color: #222; /* Color texto del contenido*/
+  background: radial-gradient(ellipse at bottom, #180a38 0%, #080314 60%, #030108 100%);
+  background-attachment: fixed;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #e2e8f0;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* ================= HEADER ================= */
+/* Capas estelares y nebulares optimizadas por GPU */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250%;
+  height: 250%;
+  pointer-events: none;
+  z-index: -1;
+  will-change: transform, opacity;
+}
+
+/* Campo Estelar Avanzado */
+body::before {
+  background-image: 
+    radial-gradient(2px 2px at 25px 35px, #ffffff, transparent),
+    radial-gradient(3px 3px at 70px 160px, #f472b6, transparent),
+    radial-gradient(1.5px 1.5px at 130px 90px, #38bdf8, transparent),
+    radial-gradient(2.5px 2.5px at 220px 240px, #ffffff, transparent),
+    radial-gradient(3.5px 3.5px at 320px 110px, #c084fc, transparent),
+    radial-gradient(1px 1px at 400px 300px, #00ffff, transparent),
+    radial-gradient(2px 2px at 480px 180px, #e879f9, transparent),
+    radial-gradient(3px 3px at 550px 420px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.95;
+  animation: animEstrellas 25s linear infinite;
+}
+
+/* Nebulosa Galáctica */
+body::after {
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(192, 132, 252, 0.4), transparent 40%),
+    radial-gradient(circle at 80% 65%, rgba(236, 72, 153, 0.35), transparent 45%),
+    radial-gradient(circle at 45% 85%, rgba(14, 165, 233, 0.3), transparent 50%),
+    radial-gradient(circle at 75% 20%, rgba(147, 51, 234, 0.4), transparent 35%);
+  filter: blur(50px);
+  animation: animNebulosa 10s ease-in-out infinite alternate;
+}
+
+@keyframes animEstrellas {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(-500px) translateX(-250px); }
+}
+
+@keyframes animNebulosa {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.75; }
+  100% { transform: scale(1.25) rotate(8deg); opacity: 1; }
+}
+
+/* ==========================================================================
+   HEADER & PERFIL DE USUARIO
+   ========================================================================== */
 .perfil {
-  /* “Todo lo que esté clase perfil tendrá estos estilos”.*/
-  background-color: #0a2540; /* Azul oscuro "color portada" */
-  color: white; /* Texto blanco "texto en la portada"*/
-  text-align: center; /* Centra contenido */
-  padding: 30px; /* espacio interno, agrega 30px o lo que le pongamos entre elementos para que no se vea apretado */
+  background: rgba(15, 8, 32, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  border-bottom: 2px solid rgba(168, 85, 247, 0.35);
+  box-shadow: 0 10px 40px rgba(126, 34, 206, 0.3);
 }
 
 .perfil img {
-  /* “Todas las imagenes que esten en la clase perfil tendrá estos estilos”.*/
-  width: 150px; /* Tamaño imagen de perfil */
-  border-radius: 50%; /* Curbatura de las esquinas de la foto de perfil al dejarla en 50% de ve Circular */
-  border: 4px solid white; /* Borde de la foto de perfil */
+  width: 155px;
+  height: 155px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #d8b4fe;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 15px rgba(56, 189, 248, 0.6);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Redes sociales o botones debajo de la foto de perfil */
+.perfil img:hover {
+  transform: scale(1.07) rotate(2deg);
+}
+
+.perfil h1 {
+  font-size: 2.5rem;
+  margin: 18px 0 8px 0;
+  background: linear-gradient(135deg, #ffffff 20%, #f472b6 60%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 20px rgba(232, 121, 249, 0.4);
+}
+
+.perfil p {
+  color: #cbd5e1;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+/* Enlaces Sociales */
+.social {
+  margin-top: 15px;
+}
+
 .social a {
-  /* “Todo lo que esté clase social tendrá estos estilos”.*/
-  background: white; /* Color del boton */
-  color: #0a2540; /* Color de la letra en el boton */
-  padding: 8px 15px; /* Tamaño del boton, hace que el boton no este pegado al texto se vea comodo para hacer clic*/
-  margin: 5px; /* Espacio entre un boton y el otro */
-  display: inline-block; /* Texto que se comporta como caja - permite: padding, bordes redondeados, tamaño propio */
-  text-decoration: none; /* Espacio entre un boton y el otro */
-  border-radius: 20px; /* Redondea las esquinas dando sensacion de boton moderno */
-  font-weight: bold; /* Texto en negrita */
-  transition: 0.3s; /* Esto prepara al botón para animaciones suaves cuando: pases el mause, cambie el color */
+  background: rgba(147, 51, 234, 0.25);
+  color: #f3e8ff;
+  border: 1px solid rgba(192, 132, 252, 0.5);
+  padding: 9px 20px;
+  margin: 6px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
 }
 
-/* Hover en botones */
 .social a:hover {
-  /* Cuando el mouse esté encima (hover) de un <a> que esté dentro de .social, aplica estos estilos - Cuando pasas el cursor sobre GitHub o LinkedIn, este estilo se activa. */
-  background: #6989aa; /* Color resaltante al pasar el mause por GitHub o LinkedIn*/
+  background: linear-gradient(135deg, #7e22ce, #c084fc);
+  color: #ffffff;
+  border-color: #f472b6;
+  box-shadow: 0 0 25px rgba(217, 70, 239, 0.8);
+  transform: translateY(-3px) scale(1.03);
 }
 
-/* ================= MENÚ ================= */
-
+/* ==========================================================================
+   MENÚ DE NAVEGACIÓN (Sticky Glassmorphism)
+   ========================================================================== */
 nav {
-  /* “Todo lo que esté clase nav tendrá estos estilos en este caso especificamente el menu de navegación”.*/
-  background: white; /* Color barra del menu de navegacion */
-  padding: 15px; /* Espacio interno dentro del menu */
-
-  display: flex; /* Activa Flexbox */
-  flex-direction: column; /* 📱 Mobile first: vertical */
-  /*justify-content: center;         /* Centra los enlaces horizontalmente */
-  align-items: center; /* Los centra verticalmente */
-  gap: 15px; /* Espacio entre botones */
-
-  /*text-align: center;  centra los enlaces dentro del menu */
-  position: sticky; /* efecto profesional */
-  top: 0; /* le dice a sticky Quédate pegado exactamente al borde superior de la pantalla. */
-  z-index: 1000; /* Esto controla la gerarquia de quien va encima de que entre mayor el número mas arriba visualmente */
+  background: rgba(10, 4, 22, 0.95);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8);
 }
 
 nav a {
-  color: #0a2540; /* Define el color del texto de los enlaces del menú (azul oscuro) */
-  text-decoration: none; /* Quita el subrayado típico de los enlaces */
-  font-weight: bold; /* Hace el texto más grueso (negrita) */
-
-  padding: 10px 15px; /* Ahora son botones */
-  border-radius: 8px; /* Bordes suaves */
-
-  /* margin: 0 15px;         Agrega espacio a la izquierda y derecha entre cada enlace */
-  transition: all 0.3s ease; /* Hace que el cambio de color sea suave cuando pasa el mouse */
+  color: #e9d5ff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
-/* Hover del menú */
 nav a:hover {
-  /* Se activa cuando el mouse pasa sobre un enlace del menú */
-  background: #e8f0ff; /* Fondo tipo botón */
-  color: #1e4e8c; /* Cambia el color del texto a un azul más claro */
+  background: rgba(168, 85, 247, 0.35);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.6);
+  transform: scale(1.05);
 }
 
-/* ================= LAYOUT ================= */
-/* Esta sección controla cómo se organiza la estructura principal de la página */
-
-/* ===== HERO ===== */
-/* Estilos generales del bloque principal (hero) */
+/* ==========================================================================
+   LAYOUT PRINCIPAL & HERO SECTION
+   ========================================================================== */
 .hero {
   text-align: center;
-  /* Centra TODO el contenido del hero (título, texto y botón) */
-
-  padding: 60px 20px;
-  /* 60px arriba y abajo → hace que el hero sea alto y elegante
-     20px a los lados → evita que el texto quede pegado en móvil */
-
-  background: linear-gradient(to bottom, #ffffff, #f4f6f8);
+  padding: 75px 20px;
+  background: transparent;
 }
 
-/* Estilos del título principal dentro del hero */
 .hero h1 {
-  font-size: 2.5rem;
-  /* Hace el título grande.
-     2.5rem se adapta al tamaño de pantalla automáticamente */
-
-  color: #0a2540;
-  /* Azul oscuro corporativo (el mismo que usas en header y menú) */
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, #ffffff, #e879f9, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
 }
 
-/* Estilos del párrafo dentro del hero */
 .hero p {
   font-size: 1.2rem;
-  /* Texto más grande que lo normal para que se lea fácil */
-
-  color: #555;
-  /* Gris oscuro: más suave que negro puro → más elegante */
-
-  max-width: 600px;
-  /* Evita que el texto sea demasiado ancho en pantallas grandes.
-     Mejora la lectura (regla de diseño profesional) */
-
-  margin: 20px auto;
-  /* 20px arriba y abajo → separa el texto del título y del botón
-     auto a los lados → centra el párrafo horizontalmente */
+  color: #cbd5e1;
+  max-width: 700px;
+  margin: 0 auto 25px auto;
+  line-height: 1.7;
 }
 
-/* Botón principal (Call To Action) */
+/* Botón Principal (CTA Estelar) */
 .cta {
-  /* Selecciona cualquier elemento que tenga class="cta" (tu botón principal) */
-  display: inline-block; /* Hace que el botón se comporte como una caja (permite padding, tamaño y margen) */
-  margin-top: 25px; /* Agrega espacio arriba para separarlo del texto */
-  padding: 14px 32px; /* 14px arriba y abajo, 32px a los lados → botón grande y cómodo para hacer clic */
-  background: #0a2540; /* Color de fondo azul oscuro (estilo corporativo) */
-  color: white; /* Color del texto del botón */
-  text-decoration: none; /* Quita el subrayado del enlace para que parezca un botón real */
-  font-weight: bold; /* Hace el texto más grueso y visible */
-  border-radius: 30px; /* Bordes muy redondeados → efecto píldora moderno */
-  transition: 0.3s; /* Hace que los cambios (color y tamaño) sean suaves al pasar el mouse */
+  display: inline-block;
+  margin-top: 15px;
+  padding: 15px 36px;
+  background: linear-gradient(135deg, #7e22ce, #db2777);
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.05rem;
+  border-radius: 35px;
+  box-shadow: 0 0 30px rgba(219, 39, 119, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(244, 114, 182, 0.5);
 }
 
-/* Cuando el usuario pasa el mouse sobre el botón */
 .cta:hover {
-  /* Hover = estado cuando el cursor está encima del botón */
-  background: #1e4e8c; /* Cambia el azul a uno más claro para dar efecto interactivo */
-  transform: scale(
-    1.05
-  ); /* Aumenta el tamaño un 5% → efecto de botón que "salta" */
+  background: linear-gradient(135deg, #9333ea, #f472b6);
+  box-shadow: 0 0 45px rgba(244, 114, 182, 0.9);
+  transform: scale(1.06) translateY(-2px);
 }
 
 main {
-  max-width: 1100px;
-  /* Define el ancho máximo que puede tener el contenido.
-     Evita que la página se estire demasiado en pantallas grandes */
-
+  max-width: 1150px;
   margin: auto;
-  /* Centra el contenido horizontalmente dentro de la ventana del navegador */
-
-  padding: 20px;
-  /* Agrega espacio interno para que el contenido no quede pegado a los bordes */
+  padding: 25px;
 }
 
 .grid {
-  display: grid; /* Activa CSS Grid (ya no Flexbox) */
-
-  /*display: flex;*/
-  /* Activa Flexbox, permitiendo que los elementos hijos (columnas)
-     se alineen uno al lado del otro */
-
-  /*grid-template-columns: 300px 1fr;   /* Sidebar fija (300px) + contenido flexible */
-
-  /* Columnas inteligentes (la columna izquierda nunca sera mas pequeña de 260px, puede crecer si ahi espacio y el 2fr significa que la columna derecha ocupa el doble de espacio que la izquierda) */
-  /*| Sidebar |      Contenido      |*/
-  /*|   1fr   |         2fr         |*/
-  /*grid-template-columns: minmax(260px, 1fr) 2fr;*/
-
-  grid-template-columns: 1fr; /* 📱 UNA sola columna por defecto */
-
-  gap: 30px;
-  /* Agrega espacio entre las columnas */
-
-  /* Alineación profesional */
-  /*justify-content: space-between;  separa las columnas horizontalmente */ /* Esto empuja las columbas a los extremos */
-  /* align-items: center;           las centra verticalmente */
-  /*align-items: flex-start; /*Alinea todos los elementos hijos desde ARRIBA del contenedor*/
-
-  align-items: start; /* Alinea todo desde arriba */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px;
+  align-items: start;
 }
 
 .columna {
   flex: 1;
-  /* Hace que cada columna ocupe el mismo ancho disponible
-     dentro del contenedor flex (.grid) */
 }
 
-.columna:first-child {
-  flex: 0.8; /* Sidebar más angosta */
-}
-
-.columna:last-child {
-  flex: 1.2; /* Contenido más ancho */
-}
-
-/* ================= TARJETAS ================= */
-/* Aquí empiezan los estilos de las tarjetas que contienen el contenido */
-
+/* ==========================================================================
+   TARJETAS PRINCIPALES (Con margen superior para evitar colisión con el menú)
+   ========================================================================== */
 .card {
-  background: white;
-  /* Define el fondo de cada tarjeta como blanco,
-     para que contraste con el fondo gris del body */
-
-  padding: 20px;
-  /* Agrega espacio dentro de la tarjeta
-     para que el texto no quede pegado a los bordes */
-
-  margin-bottom: 20px;
-  /* Crea separación vertical entre una tarjeta y otra */
-
-  border-radius: 8px;
-  /* Redondea las esquinas de la tarjeta
-     dando una apariencia más moderna y elegante */
-
+  background: rgba(18, 10, 36, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 30px;
+  margin-bottom: 25px;
+  border-radius: 18px;
   position: relative;
-  /* Permite que los elementos internos posicionados de forma absoluta
-     (como el badge "NUEVO") se coloquen tomando esta tarjeta como referencia */
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-
-  /* Sombra base de la tarjeta (cuando NO está el mouse encima) */
-  /*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);*/
-  /* 
-  0  = no se mueve horizontalmente
-  10px = baja la sombra hacia abajo
-  20px = la hace más difusa (más suave)
-  rgba(0,0,0,0.08) = negro con 8% de opacidad (sombra suave)
-  Esto hace que la tarjeta "flote" sobre el fondo
-*/
-
-  /* Prepara animaciones suaves cuando algo cambie */
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  /*
-  transform 0.3s → la animación de movimiento dura 0.3 segundos
-  box-shadow 0.3s → la sombra también cambia suavemente
-  ease → hace que la animación empiece y termine suave (no brusca)
-*/
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
-  flex-direction: column; /* Los elementos van de arriba hacia abajo */
-  gap: 10px; /* Espacio entre título, texto, botones */
+  flex-direction: column;
+  gap: 14px;
+  
+  /* Asegura que al hacer clic en el menú el título quede visible abajo */
+  scroll-margin-top: 280px;
 }
 
-/* Cuando el mouse pasa por encima de una tarjeta */
 .card:hover {
-  /* Mueve la tarjeta hacia arriba 8 píxeles */
-  transform: translateY(-8px);
-  /*
-    translateY(-8px) = la tarjeta sube
-    Da el efecto de que la tarjeta "se eleva"
-  */
-
-  /* Aumenta la sombra para simular que está más lejos del fondo */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  /*
-    20px = la sombra cae más abajo
-    40px = la sombra es más grande
-    0.15 = más oscura
-    Esto refuerza el efecto de tarjeta flotando
-  */
+  transform: translateY(-6px);
+  border-color: rgba(232, 121, 249, 0.6);
+  box-shadow: 0 20px 50px rgba(147, 51, 234, 0.4);
 }
 
-/* ================= BADGE ================= (icono azul en la esquina de proyectos que dice "NUEVO") */
-/* Comentario visual para identificar esta sección del CSS */
-
-/* Selecciona todos los elementos que tengan class="badge" */
-.badge {
-  position: absolute;
-  /* Permite mover este elemento libremente dentro de su contenedor.
-     Se posiciona respecto al primer elemento padre que tenga
-     position: relative (en este caso, la tarjeta .card) */
-
-  top: 10px;
-  /* Lo separa 10 píxeles desde la parte superior de la tarjeta */
-
-  right: 10px;
-  /* Lo separa 10 píxeles desde el lado derecho de la tarjeta */
-
-  background: #0a2540;
-  /* Color de fondo azul oscuro, igual al del header.
-     Da coherencia visual al diseño */
-
-  color: white;
-  /* Hace que el texto (por ejemplo: "NUEVO") sea blanco */
-
-  padding: 5px 10px;
-  /* Agrega espacio interno:
-     5px arriba y abajo, 10px a los lados,
-     haciendo que el badge se vea como una cápsula */
-
-  border-radius: 20px;
-  /* Redondea mucho las esquinas.
-     Esto crea el efecto de etiqueta o píldora */
+.card h2 {
+  color: #f3e8ff;
+  border-bottom: 2px solid rgba(168, 85, 247, 0.4);
+  padding-bottom: 10px;
+  margin-top: 0;
+  font-size: 1.5rem;
+  letter-spacing: -0.3px;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
 
-/* ================= PROYECTOS ================= */
-/* Comentario visual para separar esta sección del CSS */
+.card ul {
+  padding-left: 22px;
+  margin: 0;
+}
 
-/* Selecciona todos los elementos que tengan class="proyecto" */
+.card li {
+  margin-bottom: 10px;
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   SECCIÓN DE PROYECTOS & TARJETAS INTERNAS
+   ========================================================================== */
 .proyecto {
-  background: #fafafa;
-  /* Color de fondo gris muy claro.
-     Hace que cada proyecto se vea como una tarjeta suave */
-
-  padding: 15px;
-  /* Espacio interno entre el contenido (texto, links) y los bordes.
-     Evita que el texto quede pegado */
-
-  border-left: 4px solid #0a2540;
-  /* Crea una línea azul gruesa en el lado izquierdo.
-     Sirve como detalle visual que marca cada proyecto */
-
-  margin-top: 10px;
-  /* Separa cada proyecto del anterior hacia arriba,
-     evitando que queden pegados */
-
-  display: flex; /*Le dice al navegador:“Voy a organizar los elementos hijos con reglas inteligentes de alineación”.Sin esto, las siguientes líneas no funcionan.*/
-  flex-direction: column; /*Cambia la dirección del Flexbox a vertical.*/
-  gap: 10px; /*Agrega 8 píxeles de espacio entre cada elemento hijo. Sin gap, todo quedaría pegado:*/
+  background: rgba(10, 5, 22, 0.85);
+  border: 1px solid rgba(147, 51, 234, 0.35);
+  border-left: 5px solid #e879f9;
+  padding: 20px;
+  margin-top: 18px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
+.proyecto:hover {
+  background: rgba(22, 11, 45, 0.92);
+  border-color: rgba(244, 114, 182, 0.7);
+  box-shadow: 0 8px 25px rgba(217, 70, 239, 0.3);
+  transform: translateX(4px);
+}
+
+.proyecto h3 {
+  margin: 0;
+  color: #f472b6;
+  font-size: 1.25rem;
+}
+
+.proyecto p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.proyecto small {
+  color: #38bdf8;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Enlaces de proyectos (Demo / Código) */
 .proyecto a {
   display: inline-block;
-  margin-right: 10px;
-  margin-top: 10px;
-  padding: 6px 12px;
-  background: #0077ff;
-  color: white;
+  margin-right: 12px;
+  margin-top: 6px;
+  padding: 8px 16px;
+  background: rgba(147, 51, 234, 0.25);
+  color: #f3e8ff;
+  border: 1px solid rgba(192, 132, 252, 0.5);
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
-/* ================= FORMULARIO ================= */
-/* Título visual para identificar la sección del formulario */
+.proyecto a:hover {
+  background: linear-gradient(135deg, #7e22ce, #db2777);
+  color: #ffffff;
+  border-color: #f472b6;
+  box-shadow: 0 0 20px rgba(219, 39, 119, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Badges / Etiquetas Flotantes */
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 25px;
+  letter-spacing: 0.8px;
+  background: linear-gradient(135deg, #db2777, #9333ea);
+  color: #fff;
+  border: 1px solid rgba(244, 114, 182, 0.6);
+  box-shadow: 0 0 15px rgba(219, 39, 119, 0.8);
+}
+
+/* ==========================================================================
+   FORMULARIO DE CONTACTO & BOTONES
+   ========================================================================== */
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
-/* Selecciona TODOS los inputs y textareas que estén dentro de un formulario */
 form input,
 form textarea {
   width: 100%;
-  /* Hace que los campos ocupen todo el ancho del formulario */
-
-  padding: 10px;
-  /* Espacio interno entre el texto y los bordes del input.
-     Hace que se vea más grande y cómodo para escribir */
-
-  margin-bottom: 10px;
-  /* Espacio debajo de cada campo para separarlos */
+  padding: 14px 18px;
+  background: rgba(8, 3, 18, 0.9);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 12px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-/* Estilo cuando el usuario hace clic o escribe en un campo */
+form input::placeholder,
+form textarea::placeholder {
+  color: #64748b;
+}
+
 form input:focus,
 form textarea:focus {
-  outline: 2px solid #0a2540;
-  /* Dibuja un borde azul alrededor del campo activo
-     para indicar dónde está escribiendo el usuario */
+  outline: none;
+  border-color: #38bdf8;
+  background: rgba(14, 6, 28, 0.98);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
 }
-
-/* ================= BOTÓN ================= */
-/* Estilo para todos los botones */
 
 button {
-  background: #0a2540;
-  /* Color de fondo azul oscuro */
-
+  background: linear-gradient(135deg, #7e22ce, #db2777);
   color: white;
-  /* Color del texto del botón */
-
   border: none;
-  /* Quita el borde feo por defecto del navegador */
-
-  padding: 12px;
-  /* Tamaño interno del botón (lo hace más grande) */
-
+  padding: 15px;
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: 12px;
   cursor: pointer;
-  /* Hace que el mouse se convierta en una manito al pasar encima */
+  box-shadow: 0 0 25px rgba(219, 39, 119, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(244, 114, 182, 0.5);
 }
 
-/* Estilo cuando el mouse pasa sobre el botón */
 button:hover {
-  background: #1e4e8c;
-  /* Cambia a un azul más claro al pasar el mouse
-     para dar efecto visual interactivo */
+  background: linear-gradient(135deg, #9333ea, #f472b6);
+  box-shadow: 0 0 35px rgba(244, 114, 182, 0.8);
+  transform: translateY(-3px);
 }
 
-/* ================= FOOTER ================= */
-/* Título visual pa
-ra indicar que aquí empiezan los estilos del pie de página */
-
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
 footer {
-  /* Selecciona la etiqueta <footer> del HTML */
-
-  background: #0a2540;
-  /* Color de fondo azul oscuro para diferenciar el pie de página */
-
-  color: white;
-  /* Color blanco para el texto dentro del footer */
-
+  background: rgba(8, 3, 18, 0.98);
+  color: #cbd5e1;
   text-align: center;
-  /* Centra horizontalmente el texto (©, nombre, etc.) */
-
-  padding: 20px;
-  /* Agrega espacio interno alrededor del contenido
-     para que no quede pegado a los bordes */
+  padding: 35px;
+  border-top: 2px solid rgba(168, 85, 247, 0.3);
+  margin-top: 60px;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
-/* ================= RESPONSIVE ================= */
-/* Título para indicar que aquí empiezan los estilos para móviles y tablets */
-
-@media (min-width: 900px) {
-  /* Significa:
-      /* Cuando la pantalla tenga 900px o MÁS (PC, laptops) 
-      aplica los estilos que están dentro de este bloque" */
-
-  .grid {
-    /* Selecciona el contenedor principal que organiza las columnas del layout */
-    /* flex-direction: column; */ /* (Esto era de Flexbox)
-                                               Si estuviera activo, haría que las columnas se apilen una debajo de otra.
-                                               Ya no se usa porque ahora el layout funciona con CSS Grid */
-
-    /* grid-template-columns: 1fr; */ /* (Versión móvil con Grid)
-                                               Si esta línea se activa, toda la sección se convierte en UNA sola columna.
-                                               Es el equivalente a “modo celular” */
-
-    grid-template-columns: minmax(260px, 1fr) 2fr;
-    /* Crea DOS columnas con CSS Grid:
-     1) La primera columna (sidebar):
-        - Nunca será menor de 260px
-        - Puede crecer hasta ocupar 1 fracción del espacio disponible
-     2) La segunda columna (contenido principal):
-        - Ocupa 2 fracciones del espacio
-        - Siempre es el doble de ancha que la primera */
-
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    /* Agrega una sombra suave al contenedor de columnas,
-     dando un efecto de profundidad y diseño moderno */
-  }
-
-  /* .columna:first-child, */ /* (Flexbox antiguo)
-                                               Seleccionaba la primera columna (normalmente el sidebar) */
-  /* .columna:last-child { */ /* (Flexbox antiguo)
-                                               Seleccionaba la segunda columna (contenido principal) */
-  /* flex: 1; */ /* (Flexbox antiguo)
-                                               Hacía que ambas columnas ocuparan el mismo ancho.
-                                               Ya no se usa porque ahora el layout está controlado por Grid */
-
-  /* ================= MENÚ RESPONSIVE ================= */
-  nav {
-    /* Selecciona la barra de navegación <nav> (el menú principal del sitio) */
-
-    flex-direction: row; /* Organiza los enlaces del menú en fila horizontal (modo PC: uno al lado del otro) */
-
-    /* flex-direction: column;  /* Esta línea está comentada.
-                                Si la activaras, el menú pasaría a ser vertical
-                                (modo móvil: botones uno debajo del otro) */
-
-    justify-content: center; /* Centra todos los enlaces del menú horizontalmente dentro de la barra */
-
-    /* align-items: center;     /* Esta línea está comentada.
-                                Si se activara, centraría los enlaces verticalmente dentro del menú */
-
-    gap: 30px; /* Crea 30px de espacio entre cada botón del menú
-                                para que no queden pegados y se vean más claros y profesionales */
-  }
-
-  /*El siguiente codigo se bloqueo para usar el nav de arriba mejor*/
-  /*nav a {
-    Selecciona los enlaces del menú 
-
-    display: block;
-     Hace que cada enlace ocupe toda una línea,
-       en vez de estar uno al lado del otro 
-
-    margin: 10px;
-    Agrega espacio arriba y abajo entre cada enlace,
-       para que se puedan tocar fácilmente con el dedo 
-  }*/
-
-  nav a {
-    /*width: 100%;                 /* Botones ocupan todo el ancho */
-    /*text-align: center;*/
-    width: auto; /* En PC los botones NO ocupan todo el ancho */
-  }
-
-  /* ===== PERFIL ===== */
-  .perfil img {
-    width: 150px; /* Imagen más pequeña en móvil */
-  }
-}
-
-h1,
-h2,
-h3 {
-  /* Selecciona TODOS los títulos: h1, h2 y h3 */
-  line-height: 1.2; /* Define la altura entre las líneas del texto.
-                             1.2 significa que las líneas estarán muy juntas,
-                             haciendo los títulos más compactos, fuertes y elegantes */
+/* ==========================================================================
+   TIPOGRAFÍA Y LECTURA
+   ========================================================================== */
+h1, h2, h3 {
+  line-height: 1.25;
 }
 
 p {
-  /* Selecciona TODOS los párrafos <p> del sitio */
-  line-height: 1.6; /* Define la distancia entre líneas del texto.
-                             1.6 hace que el texto sea más aireado,
-                             más cómodo de leer y más profesional */
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVE (Desktop / Tablets >= 900px)
+   ========================================================================== */
+@media (min-width: 900px) {
+  nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 35px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(320px, 1fr) 2fr;
+  }
+
+  .card {
+    scroll-margin-top: 90px;
+  }
 }
