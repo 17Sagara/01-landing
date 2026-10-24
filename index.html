@@ -29,8 +29,81 @@
 
     <!-- Conecta el HTML con el archivo CSS -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- ESTILOS PARA EL PRELOADER CON ANIMACIÓN DE TRAZO Y CORTINA -->
+    <style>
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #090314;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+      }
+      .loader-svg {
+        width: 180px;
+        height: 120px;
+      }
+      /* Animación de dibujo de los trazos del SVG */
+      .ar-path {
+        fill: none;
+        stroke: url(#gradient);
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 400;
+        stroke-dashoffset: 400;
+        animation: drawPath 2s ease forwards;
+      }
+      @keyframes drawPath {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      .loader-subtitle {
+        margin-top: 15px;
+        font-family: monospace, sans-serif;
+        font-size: 0.8rem;
+        color: #94a3b8;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeInText 0.8s ease 1.2s forwards;
+      }
+      @keyframes fadeInText {
+        to { opacity: 1; }
+      }
+      /* Efecto cortina al terminar de cargar */
+      body.loaded #preloader {
+        transform: translateY(-100%);
+      }
+    </style>
   </head>
   <body>
+    <!-- ================= PRELOADER CON TRAYECTORIA SVG ================= -->
+    <div id="preloader">
+      <svg class="loader-svg" viewBox="0 0 200 120">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7e22ce" />
+            <stop offset="100%" stop-color="#38bdf8" />
+          </linearGradient>
+        </defs>
+        <!-- Letra A y Letra R vectorizadas en trazos continuos -->
+        <!-- Trazo de la A -->
+        <path class="ar-path" d="M 25 90 L 45 30 L 65 90 M 33 65 L 57 65" />
+        <!-- Trazo de la R -->
+        <path class="ar-path" d="M 95 90 L 95 30 L 125 30 C 140 30, 140 60, 125 60 L 95 60 M 115 60 L 135 90" style="animation-delay: 0.3s;" />
+      </svg>
+      <div class="loader-subtitle">Cargando portafolio</div>
+    </div>
+
     <!-- CUERPO DE LA PAGINA WEB -->
 
     <!-- ================= HEADER ================= -->
@@ -63,13 +136,23 @@
       </div>
     </header>
 
-    <!-- ================= MENÚ DE NAVEGACIÓN ================= -->
-    <nav>
-      <a href="#sobre">Sobre mí</a>
-      <a href="#habilidades">Habilidades</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="laboratorio.html">Laboratorio JS</a>
-      <a href="#contacto">Contacto</a>
+    <!-- ================= MENÚ DE NAVEGACIÓN RESPONSIVE ================= -->
+    <nav class="navbar">
+      <!-- Botón Hamburguesa para Móviles -->
+      <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Enlaces del Menú -->
+      <div class="nav-links">
+        <a href="#sobre">Sobre mí</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="laboratorio.html">Laboratorio JS</a>
+        <a href="#contacto">Contacto</a>
+      </div>
     </nav>
 
     <!-- ================= CONTENIDO PRINCIPAL ================= -->
@@ -138,10 +221,15 @@
               <h3>HelpDesk IT — Mesa de Ayuda y Activos TI</h3>
               
               <!-- Botón Estilizado y Compacto para Probar App en Vivo -->
-              <div style="text-align: center; margin: 14px 0 12px 0;">
+              <div style="text-align: center; margin: 14px 0 6px 0;">
                 <a href="https://helpdesk-it-theta.vercel.app" target="_blank" rel="noopener noreferrer" class="cta" style="display: inline-block; padding: 10px 22px; font-size: 0.9rem; font-weight: bold; background: linear-gradient(135deg, #0284c7, #10b981); border-radius: 8px; text-decoration: none; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">
                   🚀 PROBAR HELPDESK EN VIVO
                 </a>
+              </div>
+
+              <!-- Credenciales de acceso de prueba -->
+              <div style="text-align: center; font-size: 0.82rem; color: #cbd5e1; background: rgba(255, 255, 255, 0.04); padding: 8px 10px; border-radius: 6px; margin-bottom: 12px; border: 1px dashed rgba(255, 255, 255, 0.15);">
+                🔑 <strong>Demo:</strong> Usuario: <code style="background: rgba(0,0,0,0.35); padding: 2px 5px; border-radius: 4px; color: #38bdf8; user-select: all; cursor: pointer;" title="Haz clic para seleccionar">17ingsistemas17@gmail.com</code> | Pass: <code style="background: rgba(0,0,0,0.35); padding: 2px 5px; border-radius: 4px; color: #38bdf8; user-select: all; cursor: pointer;" title="Haz clic para seleccionar">123456789</code>
               </div>
 
               <p>
@@ -158,10 +246,15 @@
               <h3>Cuttify — Optimización de Cortes de Madera</h3>
               
               <!-- Botón Estilizado y Compacto para Probar App en Vivo -->
-              <div style="text-align: center; margin: 14px 0 12px 0;">
+              <div style="text-align: center; margin: 14px 0 6px 0;">
                 <a href="https://cuttify-phi.vercel.app" target="_blank" rel="noopener noreferrer" class="cta" style="display: inline-block; padding: 10px 22px; font-size: 0.9rem; font-weight: bold; background: linear-gradient(135deg, #7e22ce, #38bdf8); border-radius: 8px; text-decoration: none; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);">
                   🚀 PROBAR APLICACIÓN EN VIVO
                 </a>
+              </div>
+
+              <!-- Credenciales de acceso de prueba -->
+              <div style="text-align: center; font-size: 0.82rem; color: #cbd5e1; background: rgba(255, 255, 255, 0.04); padding: 8px 10px; border-radius: 6px; margin-bottom: 12px; border: 1px dashed rgba(255, 255, 255, 0.15);">
+                🔑 <strong>Demo:</strong> Usuario: <code style="background: rgba(0,0,0,0.35); padding: 2px 5px; border-radius: 4px; color: #38bdf8; user-select: all; cursor: pointer;" title="Haz clic para seleccionar">admin@cuttify.co</code> | Pass: <code style="background: rgba(0,0,0,0.35); padding: 2px 5px; border-radius: 4px; color: #38bdf8; user-select: all; cursor: pointer;" title="Haz clic para seleccionar">12345678</code>
               </div>
 
               <p>
@@ -212,19 +305,50 @@
       </div>
 
       <!-- ================= CONTACTO ================= -->
-<section class="card" id="contacto">
-  <h2>Contacto</h2>
-  <form action="https://formspree.io/f/mvkzekvw" method="POST">
-    <input type="text" name="name" placeholder="Tu nombre" required />
-    <input type="email" name="email" placeholder="Tu correo" required />
-    <textarea name="message" placeholder="Tu mensaje" required></textarea>
-    <button type="submit">Enviar mensaje</button>
-  </form>
-</section>
+      <section class="card" id="contacto">
+        <h2>Contacto</h2>
+        <form action="https://formspree.io/f/mvkzekvw" method="POST">
+          <input type="text" name="name" placeholder="Tu nombre" required />
+          <input type="email" name="email" placeholder="Tu correo" required />
+          <textarea name="message" placeholder="Tu mensaje" required></textarea>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </section>
+    </main>
 
     <!-- ================= FOOTER ================= -->
     <footer>
       <p>© 2026 - Anderson Rodríguez | Ingeniero de Sistemas & Desarrollador</p>
     </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (hamburger && navLinks) {
+          hamburger.addEventListener("click", () => {
+            const isActive = navLinks.classList.toggle("active");
+            hamburger.setAttribute("aria-expanded", isActive);
+          });
+
+          // Cerrar menú al hacer clic en cualquier enlace dentro del menú
+          document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+              navLinks.classList.remove("active");
+              hamburger.setAttribute("aria-expanded", "false");
+            });
+          });
+        }
+      });
+
+      // Lógica para levantar la cortina del preloader una vez cargue la web
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.body.classList.add("loaded");
+        }, 1200); // 1.2 segundos para que se alcance a apreciar el trazo completo de la A y la R
+      });
+    </script>
   </body>
 </html>
